@@ -4,10 +4,72 @@
     <Filter Include="main">
       <UniqueIdentifier>{54206a12-4f11-4041-8436-5ea6b68b5455}</UniqueIdentifier>
     </Filter>
+    <Filter Include="domain">
+      <UniqueIdentifier>{928e7e67-65f7-4d5a-a821-c62c0431f1f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfases">
+      <UniqueIdentifier>{e0dadcc7-5aa7-42fc-b847-ccafde65956b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileStorage">
+      <UniqueIdentifier>{23ed670f-a522-4964-a2b3-fe2cfb05daf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Users">
+      <UniqueIdentifier>{b4a53197-fa4f-4afb-87ef-3ad12522f76b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MedicalRecord">
+      <UniqueIdentifier>{a98d7b4e-371d-454e-9c20-b6cc546c7e4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="domain.h">
+      <Filter>domain</Filter>
+    </ClInclude>
+    <ClInclude Include="lib.h">
+      <Filter>domain</Filter>
+    </ClInclude>
+    <ClInclude Include="IUser.h">
+      <Filter>Interfases</Filter>
+    </ClInclude>
+    <ClInclude Include="IMedicalRecord.h">
+      <Filter>Interfases</Filter>
+    </ClInclude>
+    <ClInclude Include="IDataStorage.h">
+      <Filter>Interfases</Filter>
+    </ClInclude>
+    <ClInclude Include="user.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="admin.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="doctor.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="nurse.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="admin_staff.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="file_storage.h">
+      <Filter>FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="medical_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="diagnostic_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="treatment_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="visit_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

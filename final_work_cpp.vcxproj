@@ -129,6 +129,23 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="admin.h" />
+    <ClInclude Include="admin_staff.h" />
+    <ClInclude Include="diagnostic_record.h" />
+    <ClInclude Include="doctor.h" />
+    <ClInclude Include="domain.h" />
+    <ClInclude Include="file_storage.h" />
+    <ClInclude Include="IDataStorage.h" />
+    <ClInclude Include="IMedicalRecord.h" />
+    <ClInclude Include="IUser.h" />
+    <ClInclude Include="lib.h" />
+    <ClInclude Include="medical_record.h" />
+    <ClInclude Include="nurse.h" />
+    <ClInclude Include="treatment_record.h" />
+    <ClInclude Include="user.h" />
+    <ClInclude Include="visit_record.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
