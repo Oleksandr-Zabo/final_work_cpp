@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="main">
-      <UniqueIdentifier>{54206a12-4f11-4041-8436-5ea6b68b5455}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="domain">
-      <UniqueIdentifier>{928e7e67-65f7-4d5a-a821-c62c0431f1f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interfases">
-      <UniqueIdentifier>{e0dadcc7-5aa7-42fc-b847-ccafde65956b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FileStorage">
       <UniqueIdentifier>{23ed670f-a522-4964-a2b3-fe2cfb05daf8}</UniqueIdentifier>
     </Filter>
@@ -19,57 +10,66 @@
     <Filter Include="MedicalRecord">
       <UniqueIdentifier>{a98d7b4e-371d-454e-9c20-b6cc546c7e4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{4966bfab-75e3-44bb-bdee-1610d5aaf693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain">
+      <UniqueIdentifier>{63d59ebd-940c-4f75-a989-c2037fe411ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{58c54bc5-a387-43da-8c3e-4dae02566689}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="domain\domain.h">
+      <Filter>domain</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\lib.h">
+      <Filter>domain</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Interfaces\IDataStorage.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Interfaces\IMedicalRecord.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Interfaces\IUser.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="data\MedicalRecord\diagnostic_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="data\MedicalRecord\medical_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="data\MedicalRecord\treatment_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="data\MedicalRecord\visit_record.h">
+      <Filter>MedicalRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="data\FileStorage\file_storage.h">
+      <Filter>FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Users\admin.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Users\admin_staff.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Users\doctor.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Users\nurse.h">
+      <Filter>Users</Filter>
+    </ClInclude>
+    <ClInclude Include="data\Users\user.h">
+      <Filter>Users</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="domain.h">
-      <Filter>domain</Filter>
-    </ClInclude>
-    <ClInclude Include="lib.h">
-      <Filter>domain</Filter>
-    </ClInclude>
-    <ClInclude Include="IUser.h">
-      <Filter>Interfases</Filter>
-    </ClInclude>
-    <ClInclude Include="IMedicalRecord.h">
-      <Filter>Interfases</Filter>
-    </ClInclude>
-    <ClInclude Include="IDataStorage.h">
-      <Filter>Interfases</Filter>
-    </ClInclude>
-    <ClInclude Include="user.h">
-      <Filter>Users</Filter>
-    </ClInclude>
-    <ClInclude Include="admin.h">
-      <Filter>Users</Filter>
-    </ClInclude>
-    <ClInclude Include="doctor.h">
-      <Filter>Users</Filter>
-    </ClInclude>
-    <ClInclude Include="nurse.h">
-      <Filter>Users</Filter>
-    </ClInclude>
-    <ClInclude Include="admin_staff.h">
-      <Filter>Users</Filter>
-    </ClInclude>
-    <ClInclude Include="file_storage.h">
-      <Filter>FileStorage</Filter>
-    </ClInclude>
-    <ClInclude Include="medical_record.h">
-      <Filter>MedicalRecord</Filter>
-    </ClInclude>
-    <ClInclude Include="diagnostic_record.h">
-      <Filter>MedicalRecord</Filter>
-    </ClInclude>
-    <ClInclude Include="treatment_record.h">
-      <Filter>MedicalRecord</Filter>
-    </ClInclude>
-    <ClInclude Include="visit_record.h">
-      <Filter>MedicalRecord</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

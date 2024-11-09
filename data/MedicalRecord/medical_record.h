@@ -1,8 +1,8 @@
 #ifndef MEDICAL_RECORD_CLASS
 #define MEDICAL_RECORD_CLASS
 
-#include "lib.h"
-#include "IMedicalRecord.h"
+#include "../../domain/lib.h"
+#include "../Interfaces/IMedicalRecord.h"
 
 struct Date {
 private:
