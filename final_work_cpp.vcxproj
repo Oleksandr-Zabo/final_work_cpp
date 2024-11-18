@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="domain\data\FileStorage\file_storage.h" />
+    <ClInclude Include="domain\data\FileStorage\load_user.h" />
+    <ClInclude Include="domain\data\FileStorage\save_user.h" />
     <ClInclude Include="domain\data\Interfaces\IDataStorage.h" />
     <ClInclude Include="domain\data\Interfaces\IMedicalRecord.h" />
     <ClInclude Include="domain\data\Interfaces\IUser.h" />

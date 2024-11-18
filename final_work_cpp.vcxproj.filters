@@ -72,6 +72,12 @@
     <ClInclude Include="domain\data\Users\user.h">
       <Filter>domain\data\Users</Filter>
     </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\save_user.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\load_user.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

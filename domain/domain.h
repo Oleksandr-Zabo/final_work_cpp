@@ -11,6 +11,7 @@
 
 //file storage
 #include "data/FileStorage/file_storage.h"
+#include "data/FileStorage/save_user.h"
 
 //medical records
 #include "data/MedicalRecord/medical_record.h"
