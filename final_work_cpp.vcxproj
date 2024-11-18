@@ -127,19 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="data\FileStorage\file_storage.h" />
-    <ClInclude Include="data\Interfaces\IDataStorage.h" />
-    <ClInclude Include="data\Interfaces\IMedicalRecord.h" />
-    <ClInclude Include="data\Interfaces\IUser.h" />
-    <ClInclude Include="data\MedicalRecord\diagnostic_record.h" />
-    <ClInclude Include="data\MedicalRecord\medical_record.h" />
-    <ClInclude Include="data\MedicalRecord\treatment_record.h" />
-    <ClInclude Include="data\MedicalRecord\visit_record.h" />
-    <ClInclude Include="data\Users\admin.h" />
-    <ClInclude Include="data\Users\admin_staff.h" />
-    <ClInclude Include="data\Users\doctor.h" />
-    <ClInclude Include="data\Users\nurse.h" />
-    <ClInclude Include="data\Users\user.h" />
+    <ClInclude Include="domain\data\FileStorage\file_storage.h" />
+    <ClInclude Include="domain\data\Interfaces\IDataStorage.h" />
+    <ClInclude Include="domain\data\Interfaces\IMedicalRecord.h" />
+    <ClInclude Include="domain\data\Interfaces\IUser.h" />
+    <ClInclude Include="domain\data\MedicalRecord\diagnostic_record.h" />
+    <ClInclude Include="domain\data\MedicalRecord\medical_record.h" />
+    <ClInclude Include="domain\data\MedicalRecord\treatment_record.h" />
+    <ClInclude Include="domain\data\MedicalRecord\visit_record.h" />
+    <ClInclude Include="domain\data\Users\admin.h" />
+    <ClInclude Include="domain\data\Users\admin_staff.h" />
+    <ClInclude Include="domain\data\Users\doctor.h" />
+    <ClInclude Include="domain\data\Users\nurse.h" />
+    <ClInclude Include="domain\data\Users\user.h" />
     <ClInclude Include="domain\domain.h" />
     <ClInclude Include="domain\lib.h" />
   </ItemGroup>

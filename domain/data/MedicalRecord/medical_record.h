@@ -1,7 +1,7 @@
 #ifndef MEDICAL_RECORD_CLASS
 #define MEDICAL_RECORD_CLASS
 
-#include "../../domain/lib.h"
+#include "../../lib.h"
 #include "../Interfaces/IMedicalRecord.h"
 
 struct Date {

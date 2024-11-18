@@ -1,7 +1,7 @@
 #ifndef FILE_STORAGE_CLASS
 #define FILE_STORAGE_CLASS
 
-#include "../../domain/lib.h"
+#include "../../lib.h"
 #include "../Interfaces/IDataStorage.h"
 
 class FileStorage : public IDataStorage {
