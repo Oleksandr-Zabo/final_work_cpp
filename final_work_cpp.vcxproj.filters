@@ -78,6 +78,9 @@
     <ClInclude Include="domain\data\FileStorage\load_user.h">
       <Filter>domain\data\FileStorage</Filter>
     </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\save_record.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

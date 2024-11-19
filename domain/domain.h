@@ -13,6 +13,7 @@
 #include "data/FileStorage/file_storage.h"
 #include "data/FileStorage/save_user.h"
 #include "data/FileStorage/load_user.h"
+#include "data/FileStorage/save_record.h"
 
 //medical records
 #include "data/MedicalRecord/medical_record.h"
