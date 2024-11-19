@@ -21,7 +21,8 @@ public:
         ifstream file("users.txt");
         string line;
         while (getline(file, line)) {
-            User* user = createUserFromString(line);
+            string decodedLine = FileStorage::decrypt(line);
+            User* user = createUserFromString(decodedLine);
             if (user != nullptr) {
                 users.push_back(user);
             }
@@ -40,23 +41,23 @@ public:
         return nullptr;
     }
 
-    /*User* createUserFromString(const string& userInfo) {
+    User* createUserFromString(const string& userInfo) {
         stringstream ss(userInfo);
-        string type, username, password;
-        ss >> type >> username >> password;
+		string username, password, name, surname, role;
+        ss >> username, password, name, surname, role;
 
-        if (type == "Admin") {
+        if (role == "Admin") {
             return new Admin(username, password);
-        } else if (type == "Doctor") {
-            return new Doctor(username, password);
-        } else if (type == "Nurse") {
-            return new Nurse(username, password);
-        } else if (type == "AdminStaff") {
-            return new AdminStaff(username, password);
+        } else if (role == "Doctor") {
+            return new Doctor(username, password, name, surname);
+        } else if (role == "Nurse") {
+            return new Nurse(username, password, name, surname);
+        } else if (role == "AdminStaff") {
+            return new AdminStaff(username, password, name, surname);
         } else {
             return nullptr;
         }
-    }*/
+    }
 };
 
 #endif // !LOAD_USER
