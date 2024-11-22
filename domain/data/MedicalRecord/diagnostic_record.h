@@ -31,6 +31,10 @@ public:
 		getline(iss, line);
 		_analysis = line.substr(line.find(": ") + 2);
 	}
+
+	string getDiagnosis() const {
+		return _diagnosis;
+	}
 };
 #endif // !DIAGNOSTIC_RECORD
 

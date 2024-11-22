@@ -184,5 +184,12 @@ public:
 		_policy.fromString(line.substr(line.find(": ") + 2));
 	}
 
+	string getName() const {
+		return _name_of_patient;
+	}
+
+	string getSurname() const {
+		return _surname_of_patient;
+	}
 };
 #endif // !MEDICAL_RECORD_CLASS
