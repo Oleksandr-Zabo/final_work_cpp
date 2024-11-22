@@ -143,6 +143,13 @@ public:
 
     }
 
+	MedicalRecord(const string& name, const string& surname, string date_of_birth, const string& policy) {
+		_name_of_patient = name;
+		_surname_of_patient = surname;
+		_date_of_birth = Date::fromString(date_of_birth);
+        _policy.fromString(policy);
+	}
+
 	MedicalRecord(const MedicalRecord& medical_record) {
 		_name_of_patient = medical_record._name_of_patient;
 		_surname_of_patient = medical_record._surname_of_patient;
