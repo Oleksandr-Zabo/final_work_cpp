@@ -13,26 +13,30 @@
 
 class SaveRecord : public FileStorage {
 private:
-    /*string convertUserToString(const User& user) {
-        stringstream ss;
-        ss << user.getUsername() << " ";
-        ss << user.getPassword() << " ";
-        ss << user.getName() << " ";
-        ss << user.getSurname() << " ";
-        ss << user.getRole();
-        return ss.str();
-    }*/
 
     string convertRecordToString(const MedicalRecord& medical_record, const DiagnosticRecord& diagnos_record, const TreatmentRecord& treatment_record, const VisitRecord& visit_record) {
         stringstream ss;
+        ss << "***\n";
+        ss << medical_record.Medical_Record_to_string() << "\n";
+        ss << "###\n";
+        ss << "***\n";
+        ss << diagnos_record.Diagnostic_Record_to_string() << "\n";
+        ss << "###\n";
+        ss << "***\n";
+        ss << treatment_record.Treatment_Record_to_string() << "\n";
+        ss << "###\n";
+        ss << "***\n";
+        ss << visit_record.Visit_Record_to_string() << "\n";
+        ss << "###\n";
         return ss.str();
     }
 
 public:
-    /*void saveUser(const User& user) {
-        string data = convertUserToString(user);
-        saveData(data);
-    }*/
+
+	void saveRecord(const MedicalRecord& medical_record, const DiagnosticRecord& diagnos_record, const TreatmentRecord& treatment_record, const VisitRecord& visit_record) {
+		string data = convertRecordToString(medical_record, diagnos_record, treatment_record, visit_record);
+		saveData(data);
+	}
 };
 
 #endif // !SAVE_RECORD
