@@ -135,7 +135,7 @@ public:
 		_policy = InsurancePolicy();
 	}
 
-	MedicalRecord(string& name, string& surname, Date date_of_birth, InsurancePolicy policy){
+	MedicalRecord(const string& name, const string& surname, Date date_of_birth, InsurancePolicy policy){
 		_name_of_patient = name;
 		_surname_of_patient = surname;
 		_date_of_birth = date_of_birth;
