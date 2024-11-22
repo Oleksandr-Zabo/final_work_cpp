@@ -11,12 +11,28 @@ private:
 	string _name_of_nurse;
 	string _surname_of_nurse;
 public:
+	VisitRecord() {
+		_date_of_visit = Date();
+		_name_of_doctor = "No_name_doctor";
+		_surname_of_doctor = "No_surname_doctor";
+		_name_of_nurse = "No_name_nurse";
+		_surname_of_nurse = "No_surname_nurse";
+	}
+
 	VisitRecord(const Date& date, const string& doctor_name, const string& doctor_surname, const string& nurse_name, const string& nurse_surname) {
 		_date_of_visit = date;
 		_name_of_doctor = doctor_name;
 		_surname_of_doctor = doctor_surname;
 		_name_of_nurse = nurse_name;
 		_surname_of_nurse = nurse_surname;
+	}
+
+	VisitRecord(const VisitRecord& visit_record) {
+		_date_of_visit = visit_record._date_of_visit;
+		_name_of_doctor = visit_record._name_of_doctor;
+		_surname_of_doctor = visit_record._surname_of_doctor;
+		_name_of_nurse = visit_record._name_of_nurse;
+		_surname_of_nurse = visit_record._surname_of_nurse;
 	}
 
 	void displayRecord() const override {

@@ -147,6 +147,7 @@
     <ClInclude Include="domain\lib.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="domain\data\FileStorage\load_record.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

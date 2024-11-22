@@ -8,10 +8,20 @@ private:
 	string _diagnosis;
 	string _analysis;
 public:
+	DiagnosticRecord() {
+		_diagnosis = "no diagnosis";
+		_analysis = "No analysis information";
+	}
+
     DiagnosticRecord(const string& diagnosis, const string& analysis) {
-		_diagnosis = diagnosis;
+		_diagnosis = diagnosis; 
 		_analysis = analysis;
     }
+
+	DiagnosticRecord(const DiagnosticRecord& diagnostic_record) {
+		_diagnosis = diagnostic_record._diagnosis;
+		_analysis = diagnostic_record._analysis;
+	}
 
     void displayRecord() const override {
 		cout << "Diagnosis: " << _diagnosis << endl;

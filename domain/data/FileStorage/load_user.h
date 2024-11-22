@@ -12,10 +12,6 @@
 
 class LoadUser : public FileStorage {
 public:
-    #include "load_user.h"
-    #include <fstream>
-    #include <sstream>
-
     vector<User*> readAllUsers() {
         vector<User*> users;
         ifstream file("users.txt");

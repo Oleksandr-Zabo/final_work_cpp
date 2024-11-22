@@ -8,9 +8,19 @@ private:
 	string _treatment;
 	string _medicines;
 public:
+	TreatmentRecord() {
+		_treatment = "No treatment information";
+		_medicines = "No medicines information";
+	}
+
 	TreatmentRecord(const string& treatment, const string& medicines) {
 		_treatment = treatment;
 		_medicines = medicines;
+	}
+
+	TreatmentRecord(const TreatmentRecord& treatment_record) {
+		_treatment = treatment_record._treatment;
+		_medicines = treatment_record._medicines;
 	}
 
 	void displayRecord() const override {
