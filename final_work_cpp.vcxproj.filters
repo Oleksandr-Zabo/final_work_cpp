@@ -1,23 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="FileStorage">
-      <UniqueIdentifier>{23ed670f-a522-4964-a2b3-fe2cfb05daf8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Users">
-      <UniqueIdentifier>{b4a53197-fa4f-4afb-87ef-3ad12522f76b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MedicalRecord">
-      <UniqueIdentifier>{a98d7b4e-371d-454e-9c20-b6cc546c7e4b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="main">
       <UniqueIdentifier>{4966bfab-75e3-44bb-bdee-1610d5aaf693}</UniqueIdentifier>
     </Filter>
     <Filter Include="domain">
       <UniqueIdentifier>{63d59ebd-940c-4f75-a989-c2037fe411ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interfaces">
+    <Filter Include="domain\data">
+      <UniqueIdentifier>{aa7b6561-5a8d-4af3-9b25-01bd217aef6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\presentation">
+      <UniqueIdentifier>{f63a783c-34dc-44e1-bae6-9997317cb3a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\data\Interfaces">
       <UniqueIdentifier>{58c54bc5-a387-43da-8c3e-4dae02566689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\data\FileStorage">
+      <UniqueIdentifier>{23ed670f-a522-4964-a2b3-fe2cfb05daf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\data\MedicalRecord">
+      <UniqueIdentifier>{a98d7b4e-371d-454e-9c20-b6cc546c7e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\data\Users">
+      <UniqueIdentifier>{b4a53197-fa4f-4afb-87ef-3ad12522f76b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\presentation\console_ui">
+      <UniqueIdentifier>{62dd8986-70f9-4183-85a5-610ac054e41e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,49 +36,61 @@
     <ClInclude Include="domain\lib.h">
       <Filter>domain</Filter>
     </ClInclude>
-    <ClInclude Include="data\Interfaces\IDataStorage.h">
-      <Filter>Interfaces</Filter>
+    <ClInclude Include="domain\data\FileStorage\file_storage.h">
+      <Filter>domain\data\FileStorage</Filter>
     </ClInclude>
-    <ClInclude Include="data\Interfaces\IMedicalRecord.h">
-      <Filter>Interfaces</Filter>
+    <ClInclude Include="domain\data\Interfaces\IDataStorage.h">
+      <Filter>domain\data\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="data\Interfaces\IUser.h">
-      <Filter>Interfaces</Filter>
+    <ClInclude Include="domain\data\Interfaces\IMedicalRecord.h">
+      <Filter>domain\data\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="data\MedicalRecord\diagnostic_record.h">
-      <Filter>MedicalRecord</Filter>
+    <ClInclude Include="domain\data\Interfaces\IUser.h">
+      <Filter>domain\data\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="data\MedicalRecord\medical_record.h">
-      <Filter>MedicalRecord</Filter>
+    <ClInclude Include="domain\data\MedicalRecord\diagnostic_record.h">
+      <Filter>domain\data\MedicalRecord</Filter>
     </ClInclude>
-    <ClInclude Include="data\MedicalRecord\treatment_record.h">
-      <Filter>MedicalRecord</Filter>
+    <ClInclude Include="domain\data\MedicalRecord\medical_record.h">
+      <Filter>domain\data\MedicalRecord</Filter>
     </ClInclude>
-    <ClInclude Include="data\MedicalRecord\visit_record.h">
-      <Filter>MedicalRecord</Filter>
+    <ClInclude Include="domain\data\MedicalRecord\treatment_record.h">
+      <Filter>domain\data\MedicalRecord</Filter>
     </ClInclude>
-    <ClInclude Include="data\FileStorage\file_storage.h">
-      <Filter>FileStorage</Filter>
+    <ClInclude Include="domain\data\MedicalRecord\visit_record.h">
+      <Filter>domain\data\MedicalRecord</Filter>
     </ClInclude>
-    <ClInclude Include="data\Users\admin.h">
-      <Filter>Users</Filter>
+    <ClInclude Include="domain\data\Users\admin.h">
+      <Filter>domain\data\Users</Filter>
     </ClInclude>
-    <ClInclude Include="data\Users\admin_staff.h">
-      <Filter>Users</Filter>
+    <ClInclude Include="domain\data\Users\admin_staff.h">
+      <Filter>domain\data\Users</Filter>
     </ClInclude>
-    <ClInclude Include="data\Users\doctor.h">
-      <Filter>Users</Filter>
+    <ClInclude Include="domain\data\Users\doctor.h">
+      <Filter>domain\data\Users</Filter>
     </ClInclude>
-    <ClInclude Include="data\Users\nurse.h">
-      <Filter>Users</Filter>
+    <ClInclude Include="domain\data\Users\nurse.h">
+      <Filter>domain\data\Users</Filter>
     </ClInclude>
-    <ClInclude Include="data\Users\user.h">
-      <Filter>Users</Filter>
+    <ClInclude Include="domain\data\Users\user.h">
+      <Filter>domain\data\Users</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\save_user.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\load_user.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\save_record.h">
+      <Filter>domain\data\FileStorage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\data\FileStorage\load_record.cpp">
+      <Filter>domain\data\FileStorage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

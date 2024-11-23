@@ -5,26 +5,22 @@
 
 class Doctor : public User {
 private:
-    string specialty;  // Stores the doctor's specialty
+    string name;      // Stores the doctor's name
+    string surname;   // Stores the doctor's surname
 
 public:
     // Constructor
-    Doctor(const string& uname, const string& pwd, const string& spec)
-        : User(uname, pwd), specialty(spec) {}
+    Doctor(const string& uname, const string& pwd, const string& name, const string& surname)
+        : User(uname, pwd), name(name), surname(surname) {}
 
     // Method to display the doctor's role
     void displayRole() const override {
         cout << "Role: Doctor" << endl;
     }
 
-    // Method to get the doctor's specialty
-    string getSpecialty() const {
-        return specialty;
-    }
-
-    // Method to set the doctor's specialty
-    void setSpecialty(const string& spec) {
-        specialty = spec;
+    // Method to get the doctor role
+    string getRole() const override {
+        return "Doctor";
     }
 
     // Method to diagnose a patient (example function)
@@ -39,4 +35,3 @@ public:
 };
 
 #endif // !DOCTOR
-

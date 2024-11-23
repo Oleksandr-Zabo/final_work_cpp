@@ -13,6 +13,11 @@ public:
         cout << "Role: Admin" << endl;
     }
 
+    // Method to get the admin role
+    string getRole() const override{
+        return "Admin";
+    }
+
     // Method to manage users (example function)
     void manageUsers() const {
         cout << "Admin managing users" << endl;

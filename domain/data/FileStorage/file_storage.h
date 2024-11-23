@@ -1,13 +1,14 @@
 #ifndef FILE_STORAGE_CLASS
 #define FILE_STORAGE_CLASS
 
-#include "../../domain/lib.h"
+#include "../../lib.h"
 #include "../Interfaces/IDataStorage.h"
 
 class FileStorage : public IDataStorage {
 private:
     string filename;  // Stores the name of the file
 
+public:
     // Method to encrypt data using Caesar cipher with a shift of 3
     string encrypt(const string& data) const {
         string encrypted = data;
@@ -26,7 +27,6 @@ private:
         return decrypted;
     }
 
-public:
     // Constructor
     FileStorage(const string& fname) : filename(fname) {}
 

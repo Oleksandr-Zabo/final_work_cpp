@@ -1,6 +1,6 @@
 #ifndef I_DATA_STORAGE
 #define I_DATA_STORAGE
-#include "../../domain/lib.h"
+#include "../../lib.h"
 
 class IDataStorage abstract{
 public:
