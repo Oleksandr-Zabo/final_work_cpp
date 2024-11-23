@@ -127,7 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="domain\data\FileStorage\delete_record.h" />
+    <ClInclude Include="domain\data\FileStorage\delete_user.h" />
     <ClInclude Include="domain\data\FileStorage\file_storage.h" />
+    <ClInclude Include="domain\data\FileStorage\load_record.h" />
     <ClInclude Include="domain\data\FileStorage\load_user.h" />
     <ClInclude Include="domain\data\FileStorage\save_record.h" />
     <ClInclude Include="domain\data\FileStorage\save_user.h" />
@@ -145,9 +148,9 @@
     <ClInclude Include="domain\data\Users\user.h" />
     <ClInclude Include="domain\domain.h" />
     <ClInclude Include="domain\lib.h" />
+    <ClInclude Include="domain\presentation\console_ui\add_user_console.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="domain\data\FileStorage\load_record.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

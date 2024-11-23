@@ -13,7 +13,11 @@
 #include "data/FileStorage/file_storage.h"
 #include "data/FileStorage/save_user.h"
 #include "data/FileStorage/load_user.h"
+#include "data/FileStorage/delete_user.h"
 #include "data/FileStorage/save_record.h"
+#include "data/FileStorage/load_record.h"
+#include "data/FileStorage/delete_record.h"
+
 
 //medical records
 #include "data/MedicalRecord/medical_record.h"
@@ -27,3 +31,6 @@
 #include "data/Users/doctor.h"
 #include "data/Users/nurse.h"
 #include "data/Users/admin_staff.h"
+
+//console ui
+#include "presentation/console_ui/add_user_console.h"

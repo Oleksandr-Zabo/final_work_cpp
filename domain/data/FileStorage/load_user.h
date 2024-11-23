@@ -37,6 +37,16 @@ public:
         return nullptr;
     }
 
+    bool is_findUser(const string& username) {
+        vector<User*> users = readAllUsers();
+        for (User* user : users) {
+            if (user->getUsername() == username) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
     User* createUserFromString(const string& userInfo) {
         stringstream ss(userInfo);
 		string username, password, name, surname, role;

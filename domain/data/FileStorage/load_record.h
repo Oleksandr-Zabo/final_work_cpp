@@ -13,29 +13,30 @@
 
 class LoadRecord : public FileStorage {
 public:
-    vector<string> readAllRecords() {
-        vector<string> records;
-        ifstream file("records.txt");
-        if (file.is_open()) {
-            string line;
-            string record;
-            while (getline(file, line)) {
-                if (line == "###") {
-                    if (!record.empty()) {
-                        records.push_back(record);
-                        record.clear();
-                    }
-                } else {
-                    record += line + "\n";
-                }
-            }
-            if (!record.empty()) {
-                records.push_back(record);
-            }
-            file.close();
-        }
-        return records;
-    }
+	vector<string> readAllRecords() {
+		vector<string> records;
+		ifstream file("records.txt");
+		if (file.is_open()) {
+			string line;
+			string record;
+			while (getline(file, line)) {
+				if (line == "###") {
+					if (!record.empty()) {
+						records.push_back(record);
+						record.clear();
+					}
+				}
+				else {
+					record += line + "\n";
+				}
+			}
+			if (!record.empty()) {
+				records.push_back(record);
+			}
+			file.close();
+		}
+		return records;
+	}
 
 	string FindRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
 		vector<string> records = readAllRecords();
@@ -50,17 +51,30 @@ public:
 		return "Record not found";
 	}
 
-    MedicalRecord* createMedicalRecordFromString(const string& recordInfo) {
-        size_t start = recordInfo.find("***\n") + 4;
-        size_t end = recordInfo.find("\n***", start);
-        if (start == string::npos || end == string::npos) {
-            return nullptr; // or handle the error as needed
-        }
-        string medicalRecordStr = recordInfo.substr(start, end - start);
-        MedicalRecord* medicalRecord = new MedicalRecord();
-        medicalRecord->Medical_Record_from_string(medicalRecordStr);
-        return medicalRecord;
-    }
+	bool is_FindRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
+		vector<string> records = readAllRecords();
+		for (const string& record : records) {
+			MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
+			DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
+			VisitRecord* visitRecord = createVisitRecordFromString(record);
+			if (medicalRecord->getName() == name && medicalRecord->getSurname() == surname && diagnosticRecord->getDiagnosis() == diagnos && visitRecord->getDateOfVisit() == date_of_visit) {
+				return 1;
+			}
+		}
+		return 0;
+	}
+
+	MedicalRecord* createMedicalRecordFromString(const string& recordInfo) {
+		size_t start = recordInfo.find("***\n") + 4;
+		size_t end = recordInfo.find("\n***", start);
+		if (start == string::npos || end == string::npos) {
+			return nullptr; // or handle the error as needed
+		}
+		string medicalRecordStr = recordInfo.substr(start, end - start);
+		MedicalRecord* medicalRecord = new MedicalRecord();
+		medicalRecord->Medical_Record_from_string(medicalRecordStr);
+		return medicalRecord;
+	}
 
 	DiagnosticRecord* createDiagnosticRecordFromString(const string& recordInfo) {
 		size_t start = recordInfo.find("***\n", recordInfo.find("***\n") + 4) + 4;
@@ -102,3 +116,4 @@ public:
 
 };
 #endif // !LOAD_RECORD
+

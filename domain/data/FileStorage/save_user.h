@@ -10,7 +10,7 @@
 #include "file_storage.h"
 
 class SaveUser : public FileStorage {
-private:
+protected:
     string convertUserToString(const User& user) {
         stringstream ss;
         ss << user.getUsername() << " ";
@@ -22,6 +22,8 @@ private:
     }
 
 public:
+    SaveUser() = default;
+
     void saveUser(const User& user) {
         string data = convertUserToString(user);
         saveData(data);
