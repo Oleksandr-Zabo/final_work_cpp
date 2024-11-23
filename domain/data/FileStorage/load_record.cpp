@@ -37,6 +37,19 @@ public:
         return records;
     }
 
+	string FindRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
+		vector<string> records = readAllRecords();
+		for (const string& record : records) {
+			MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
+			DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
+			VisitRecord* visitRecord = createVisitRecordFromString(record);
+			if (medicalRecord->getName() == name && medicalRecord->getSurname() == surname && diagnosticRecord->getDiagnosis() == diagnos && visitRecord->getDateOfVisit() == date_of_visit) {
+				return record;
+			}
+		}
+		return "Record not found";
+	}
+
     MedicalRecord* createMedicalRecordFromString(const string& recordInfo) {
         size_t start = recordInfo.find("***\n") + 4;
         size_t end = recordInfo.find("\n***", start);

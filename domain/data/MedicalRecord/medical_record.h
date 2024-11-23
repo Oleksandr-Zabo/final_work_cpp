@@ -51,6 +51,10 @@ public:
 		return date;
 	}
 
+	bool operator==(const Date& date) const {
+		return _day == date._day && _month == date._month && _year == date._year;
+	}
+
 };
 
 struct InsurancePolicy {
