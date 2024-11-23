@@ -55,6 +55,23 @@ public:
 		return _day == date._day && _month == date._month && _year == date._year;
 	}
 
+	bool operator>(const Date& date) const {
+		if (_year > date._year) {
+			return true;
+		}
+		else if (_year == date._year) {
+			if (_month > date._month) {
+				return true;
+			}
+			else if (_month == date._month) {
+				if (_day > date._day) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 };
 
 struct InsurancePolicy {

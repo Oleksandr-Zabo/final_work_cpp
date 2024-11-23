@@ -47,6 +47,16 @@ public:
         return 0;
     }
 
+    bool is_findUserNameSurname(const string& name, const string& surname) {
+        vector<User*> users = readAllUsers();
+        for (User* user : users) {
+            if (user->getName() == name && user->getSurname() == surname) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
     User* createUserFromString(const string& userInfo) {
         stringstream ss(userInfo);
 		string username, password, name, surname, role;

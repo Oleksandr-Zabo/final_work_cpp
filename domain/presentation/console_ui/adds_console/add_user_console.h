@@ -1,12 +1,12 @@
 #ifndef ADD_USER_CONSOLE
 #define ADD_USER_CONSOLE
 
-#include "../../lib.h"
-#include "../../data/Users/admin_staff.h"
-#include "../../data/Users/doctor.h"
-#include "../../data/Users/nurse.h"
-#include "../../data/FileStorage/load_user.h"
-#include "../../data/FileStorage/save_user.h"
+#include "../../../lib.h"
+#include "../../../data/Users/admin_staff.h"
+#include "../../../data/Users/doctor.h"
+#include "../../../data/Users/nurse.h"
+#include "../../../data/FileStorage/load_user.h"
+#include "../../../data/FileStorage/save_user.h"
 
 class AddUserConsole: public SaveUser, public LoadUser{
 public:

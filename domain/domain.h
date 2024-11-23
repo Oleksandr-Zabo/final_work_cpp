@@ -33,4 +33,14 @@
 #include "data/Users/admin_staff.h"
 
 //console ui
-#include "presentation/console_ui/add_user_console.h"
+#include "presentation/console_ui/adds_console/add_record_console.h"
+#include "presentation/console_ui/adds_console/add_user_console.h"
+
+#include "presentation/console_ui/delete_console/delete_record_console.h"
+#include "presentation/console_ui/delete_console/delete_user_console.h"
+
+#include "presentation/console_ui//change_console/change_record_console.h"
+#include "presentation/console_ui//change_console/change_user_console.h"
+
+#include "presentation/console_ui/show_console/show_records_console.h"
+#include "presentation/console_ui/show_console/show_all_users_console.h"
