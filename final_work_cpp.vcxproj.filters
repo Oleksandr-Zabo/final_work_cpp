@@ -25,6 +25,9 @@
     <Filter Include="domain\data\Users">
       <UniqueIdentifier>{b4a53197-fa4f-4afb-87ef-3ad12522f76b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="domain\presentation\console_ui">
+      <UniqueIdentifier>{62dd8986-70f9-4183-85a5-610ac054e41e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="domain\domain.h">
