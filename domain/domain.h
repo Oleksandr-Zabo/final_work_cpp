@@ -44,3 +44,6 @@
 
 #include "presentation/console_ui/show_console/show_records_console.h"
 #include "presentation/console_ui/show_console/show_all_users_console.h"
+
+#include "presentation/console_ui/users_console/admin_console.h"
+#include "presentation/console_ui/users_console/doctor_console.h"

@@ -10,8 +10,10 @@
 #include "../../../data/FileStorage/load_record.h"
 #include "../../../data/FileStorage/delete_record.h"
 
-class AddRecordConsole : public SaveRecord, public LoadRecord, public DeleteRecordConsole {
+class AddRecordConsole : public SaveRecord, public LoadRecord, public DeleteRecord {
 public:
+	AddRecordConsole() = default;
+
 	void addRecord() {
 		string name, surname;
 		InsurancePolicy info_about_insurance;

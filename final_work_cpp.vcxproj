@@ -156,6 +156,9 @@
     <ClInclude Include="domain\presentation\console_ui\delete_console\delete_user_console.h" />
     <ClInclude Include="domain\presentation\console_ui\show_console\show_all_users_console.h" />
     <ClInclude Include="domain\presentation\console_ui\show_console\show_records_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\admin_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\doctor_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\log_in_console.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
