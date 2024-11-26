@@ -37,7 +37,7 @@ private:
     }
 
 public:
-    AdminStaffConsole(const std::string& uname, const std::string& pwd, const std::string& fname, const std::string& lname)
+    AdminStaffConsole(const string& uname, const string& pwd, const string& fname, const string& lname)
         : AdminStaff(uname, pwd, fname, lname) {
         loadAdminStaffInfo();
     }

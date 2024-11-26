@@ -6,9 +6,37 @@
 #include "../delete_console/delete_user_console.h"
 #include "../change_console/change_user_console.h"
 #include "../show_console/show_all_users_console.h"
+#include "../../../data/Users/admin.h"
 
-class AdminConsole : public AddUserConsole, public DeleteUserConsole, public ChangeUserConsole, public ShowAllUsersConsole {
+class AdminConsole : public Admin, public AddUserConsole, public DeleteUserConsole, public ChangeUserConsole, public ShowAllUsersConsole {
+private:
+	void getAdminInfo() {
+		std::ifstream file("users.txt");
+		if (!file.is_open()) {
+			std::cerr << "Unable to open users.txt" << std::endl;
+			return;
+		}
+		std::string line;
+		while (std::getline(file, line)) {
+			std::istringstream iss(line);
+			std::string uname, pwd, fname, lname;
+			if (!(iss >> uname >> pwd >> fname >> lname)) { break; }
+			if (uname == getUsername() && pwd == getPassword()) {
+				setName(fname);
+				setSurname(lname);
+				break;
+			}
+		}
+		file.close();
+	}
 public:
+	AdminConsole() = default;
+
+	AdminConsole(const string& username, const string& password){
+		setUsername(username);
+		setPassword(password);
+		getAdminInfo();
+	}
 	void adminMenu() {
 		int choice;
 		do
