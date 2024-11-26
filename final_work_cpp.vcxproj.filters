@@ -28,6 +28,21 @@
     <Filter Include="domain\presentation\console_ui">
       <UniqueIdentifier>{62dd8986-70f9-4183-85a5-610ac054e41e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="domain\presentation\console_ui\add">
+      <UniqueIdentifier>{03e2aefe-90b0-445c-abca-75b25268159d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\presentation\console_ui\change">
+      <UniqueIdentifier>{7569a955-69af-417f-9cb9-d663cb6f5a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\presentation\console_ui\delete">
+      <UniqueIdentifier>{4f93e878-ab4c-4145-bda6-673bbb8f92a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\presentation\console_ui\show">
+      <UniqueIdentifier>{10e77c4b-8c3b-4cd3-a811-5890960d873a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\presentation\console_ui\user">
+      <UniqueIdentifier>{e3a71715-9d72-44e4-959b-0fed9ba0c317}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="domain\domain.h">
@@ -84,13 +99,58 @@
     <ClInclude Include="domain\data\FileStorage\save_record.h">
       <Filter>domain\data\FileStorage</Filter>
     </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\load_record.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\delete_user.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\data\FileStorage\delete_record.h">
+      <Filter>domain\data\FileStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\adds_console\add_record_console.h">
+      <Filter>domain\presentation\console_ui\add</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\adds_console\add_user_console.h">
+      <Filter>domain\presentation\console_ui\add</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\change_console\change_record_console.h">
+      <Filter>domain\presentation\console_ui\change</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\change_console\change_user_console.h">
+      <Filter>domain\presentation\console_ui\change</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\delete_console\delete_record_console.h">
+      <Filter>domain\presentation\console_ui\delete</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\delete_console\delete_user_console.h">
+      <Filter>domain\presentation\console_ui\delete</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\show_console\show_all_users_console.h">
+      <Filter>domain\presentation\console_ui\show</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\show_console\show_records_console.h">
+      <Filter>domain\presentation\console_ui\show</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\users_console\admin_console.h">
+      <Filter>domain\presentation\console_ui\user</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\users_console\doctor_console.h">
+      <Filter>domain\presentation\console_ui\user</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\users_console\log_in_console.h">
+      <Filter>domain\presentation\console_ui\user</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\users_console\nurse_console.h">
+      <Filter>domain\presentation\console_ui\user</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\users_console\admin_staff_console.h">
+      <Filter>domain\presentation\console_ui\user</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>main</Filter>
-    </ClCompile>
-    <ClCompile Include="domain\data\FileStorage\load_record.cpp">
-      <Filter>domain\data\FileStorage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

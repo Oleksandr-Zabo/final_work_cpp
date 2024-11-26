@@ -7,8 +7,6 @@
 #include "../change_console/change_record_console.h"
 #include "../show_console/show_records_console.h"
 #include "../../../data/Users/doctor.h"
-#include <fstream>
-#include <sstream>
 
 class DoctorConsole :  public Doctor {
 private:

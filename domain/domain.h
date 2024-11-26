@@ -47,3 +47,5 @@
 
 #include "presentation/console_ui/users_console/admin_console.h"
 #include "presentation/console_ui/users_console/doctor_console.h"
+#include "presentation/console_ui/users_console/nurse_console.h"
+#include "presentation/console_ui/users_console/admin_staff_console.h"

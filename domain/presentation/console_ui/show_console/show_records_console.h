@@ -1,12 +1,15 @@
 #ifndef SHOW_RECORDS_CONSOLE
 #define SHOW_RECORDS_CONSOLE
 
+
 #include "../../../lib.h"
 #include "../../../data/MedicalRecord/medical_record.h"
 #include "../../../data/MedicalRecord/visit_record.h"
 #include "../../../data/MedicalRecord/diagnostic_record.h"
 #include "../../../data/MedicalRecord/treatment_record.h"
+#include "../../../data/FileStorage/save_record.h"
 #include "../../../data/FileStorage/load_record.h"
+#include "../../../data/FileStorage/delete_record.h"
 
 class ShowRecordsConsole : public LoadRecord {
 public:
@@ -30,6 +33,22 @@ public:
         for (const string& record : records) {
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             if (visitRecord->getDoctorName() == doctorName && visitRecord->getDoctorSurname() == doctorSurname) {
+                MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
+                DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
+                TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
+                medicalRecord->displayRecord();
+                diagnosticRecord->displayRecord();
+                treatmentRecord->displayRecord();
+                visitRecord->displayRecord();
+            }
+        }
+    }
+
+    void showRecordsByNurse(const string& nurseName, const string& nurseSurname) {
+        vector<string> records = LoadRecord::readAllRecords();
+        for (const string& record : records) {
+            VisitRecord* visitRecord = createVisitRecordFromString(record);
+            if (visitRecord->getNurseName() == nurseName && visitRecord->getNurseSurname() == nurseSurname) {
                 MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
                 DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
                 TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);

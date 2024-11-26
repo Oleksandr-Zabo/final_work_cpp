@@ -117,7 +117,61 @@ public:
 
 		cout << "Record added successfully." << endl;
 	}
+
+	void addShortRecord() {
+		string name, surname;
+		Date date_of_birth;
+		cout << "Enter the name of patient: ";
+		cin >> name;
+		cout << "Enter the surname of patient: ";
+		cin >> surname;
+		cout << "Enter the date of birth of patient(dd/mm/yyyy): ";
+		try
+		{
+			string date;
+			cin >> date;
+			date_of_birth.fromString(date);
+		}
+		catch (const exception& ex)
+		{
+			cout << ex.what() << endl;
+		}
+
+		InsurancePolicy info_about_insurance;
+		MedicalRecord medical_record(name, surname, date_of_birth, info_about_insurance);
+
+		string doctor_name, doctor_surname, nurse_name, nurse_surname;
+		Date date_of_visit;
+		cout << "Enter the date of visit(dd/mm/yyyy): ";
+		try
+		{
+			string date;
+			cin >> date;
+			date_of_visit.fromString(date);
+		}
+		catch (const exception& ex)
+		{
+			cout << ex.what() << endl;
+		}
+		cout << "Enter the name of doctor: ";
+		cin >> doctor_name;
+		cout << "Enter the surname of doctor: ";
+		cin >> doctor_surname;
+		cout << "Enter the name of nurse: ";
+		cin >> nurse_name;
+		cout << "Enter the surname of nurse: ";
+		cin >> nurse_surname;
+
+		VisitRecord visit_record(date_of_visit, doctor_name, doctor_surname, nurse_name, nurse_surname);
+
+		if (LoadRecord::is_FindRecord(name, surname, date_of_visit, "")) {
+			cout << "Record already exists." << endl;
+			return;
+		}
+		SaveRecord::saveRecord(medical_record, DiagnosticRecord(), TreatmentRecord(), visit_record);
+
+		cout << "Short record added successfully." << endl;
+	}
 };
 
 #endif // ADD_RECORD_CONSOLE
-
