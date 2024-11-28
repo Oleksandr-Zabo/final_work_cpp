@@ -10,7 +10,10 @@
 
 class AddUserConsole: public SaveUser, public LoadUser{
 public:
-	AddUserConsole() = default;
+	// Default constructor
+	AddUserConsole() :SaveUser(), LoadUser() {};
+	AddUserConsole(const AddUserConsole&) = delete; // Prevent copying
+	AddUserConsole& operator=(const AddUserConsole&) = delete; // Prevent assignment
 
 	// Method to add a new user
 	void addUser() {

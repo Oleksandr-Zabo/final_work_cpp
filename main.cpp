@@ -3,6 +3,7 @@
 int main()
 {
 	MainConsole mainConsole;
-	mainConsole.addAdminUser();
+
+	mainConsole.start();
 	return 0;
 }

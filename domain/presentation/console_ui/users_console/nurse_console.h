@@ -37,8 +37,8 @@ public:
 	}
 
 	void showNurseRecords() {
-		ShowRecordsConsole* showRecordsConsole;
-		showRecordsConsole->showRecordsByNurse(this->getName(), this->getSurname());
+		ShowRecordsConsole showRecordsConsole;
+		showRecordsConsole.showRecordsByNurse(this->getName(), this->getSurname());
 	}
 
 	void NurseMenu() {

@@ -32,51 +32,55 @@ private:
     }
 
 public:
+	//Constructor
     DoctorConsole(const string& uname, const string& pwd, const string& name, const string& surname): Doctor(uname, pwd, name, surname)
     {
         loadDoctorInfo();
     }
 
     void showDoctorRecords() {
-		ShowRecordsConsole* showRecordsConsole;
-        showRecordsConsole->showRecordsByDoctor(this->getName(), this->getSurname());
+		ShowRecordsConsole showRecordsConsole;
+        showRecordsConsole.showRecordsByDoctor(this->getName(), this->getSurname());
     }
 
-	void DoctorMenu() {
-		int choice;
-		do {
-			cout << "1. Show records" << endl;
-			cout << "2. Add record" << endl;
-			cout << "3. Change record" << endl;
-			cout << "4. Delete record" << endl;
-			cout << "5. Exit" << endl;
-			cout << "Enter your choice: ";
-			cin >> choice;
-			switch (choice) {
-			case 1:
-				showDoctorRecords();
-				break;
-			case 2:
-				AddRecordConsole * addRecordConsole;
-				addRecordConsole->addRecord();
-				break;
-			case 3:
-				ChangeRecordConsole * changeRecordConsole;
-				changeRecordConsole->changeRecord();
-				break;
-			case 4:
-				DeleteRecordConsole * deleteRecordConsole;
-				deleteRecordConsole->deleteRecordConsole();
-				break;
-			case 5:
-				cout << "Exiting..." << endl;
-				break;
-			default:
-				cout << "Invalid choice. Please try again." << endl;
-				break;
-			}
-		} while (choice != 5);
-	}
+    void DoctorMenu() {
+        int choice;
+        do {
+            cout << "1. Show records" << endl;
+            cout << "2. Add record" << endl;
+            cout << "3. Change record" << endl;
+            cout << "4. Delete record" << endl;
+            cout << "5. Exit" << endl;
+            cout << "Enter your choice: ";
+            cin >> choice;
+            switch (choice) {
+                case 1:
+                    showDoctorRecords();
+                    break;
+                case 2: {
+                    AddRecordConsole addRecordConsole;
+                    addRecordConsole.addRecord();
+                    break;
+                }
+                case 3: {
+                    ChangeRecordConsole changeRecordConsole;
+                    changeRecordConsole.changeRecord();
+                    break;
+                }
+                case 4: {
+                    DeleteRecordConsole deleteRecordConsole;
+                    deleteRecordConsole.deleteRecordConsole();
+                    break;
+                }
+                case 5:
+                    cout << "Exiting..." << endl;
+                    break;
+                default:
+                    cout << "Invalid choice. Please try again." << endl;
+                    break;
+                }
+        } while (choice != 5);
+    }
 
 };
 

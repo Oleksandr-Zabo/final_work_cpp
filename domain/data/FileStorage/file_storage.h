@@ -9,6 +9,9 @@ private:
     string filename;  // Stores the name of the file
 
 public:
+	// Default constructor
+	FileStorage() : filename("data.txt") {}  // Default constructor
+
     // Method to encrypt data using Caesar cipher with a shift of 3
     string encrypt(const string& data) const {
         string encrypted = data;

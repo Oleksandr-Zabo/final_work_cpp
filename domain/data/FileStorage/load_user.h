@@ -12,6 +12,9 @@
 
 class LoadUser : public FileStorage {
 public:
+	// Default constructor
+    LoadUser() :FileStorage() {};
+
     vector<User*> readAllUsers() {
         vector<User*> users;
         ifstream file("users.txt");

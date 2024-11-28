@@ -32,8 +32,8 @@ private:
     }
 
     void showAllShortRecords() {
-        ShowRecordsConsole* showRecordsConsole;
-        showRecordsConsole->showShortRecordsForAdminStaff();
+        ShowRecordsConsole showRecordsConsole;
+        showRecordsConsole.showShortRecordsForAdminStaff();
     }
 
 public:
@@ -55,8 +55,8 @@ public:
                 showAllShortRecords();
                 break;
             case 2: {
-                AddRecordConsole* addRecordConsole;
-                addRecordConsole->addShortRecord();
+                AddRecordConsole addRecordConsole{};
+                addRecordConsole.addShortRecord();
                 break;
             }
             case 3:
