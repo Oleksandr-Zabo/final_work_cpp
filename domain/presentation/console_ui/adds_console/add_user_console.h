@@ -18,6 +18,7 @@ public:
 	// Method to add a new user
 	void addUser() {
 		string username, password, role, name, surname;
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		cout << "Enter the username: ";
 		cin >> username;
 		cout << "Enter the password: ";
@@ -31,6 +32,7 @@ public:
 
 		bool is_find_user = LoadUser::is_findUser(username);
 		if (is_find_user) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << "User already exists" << endl;
 			return;
 		}
@@ -50,9 +52,11 @@ public:
 				saveUser(nurse);
 			}
 			else {
+				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 				cout << "Invalid role" << endl;
 			}
 		}
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 
 		
 	}

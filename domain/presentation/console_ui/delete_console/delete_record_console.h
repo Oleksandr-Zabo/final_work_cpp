@@ -13,6 +13,7 @@
 class DeleteRecordConsole : public SaveRecord, public LoadRecord, public DeleteRecord {
 public:
     void deleteRecordConsole() {
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
         string name, surname, diagnos;
         Date date_of_visit;
         cout << "Enter the name of patient: ";
@@ -25,9 +26,12 @@ public:
             cin >> date;
             date_of_visit = Date::fromString(date);
         } catch (const exception& ex) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
             cout << ex.what() << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
             return;
         }
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
         cout << "Enter the diagnos: ";
         cin >> diagnos;
 
@@ -42,7 +46,9 @@ public:
             }
         }
         if (!recordFound) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
             cout << "Record not found." << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
             return;
         }
         string updatedData;
@@ -50,6 +56,7 @@ public:
             updatedData += record + "\n";
         }
         LoadRecord::saveData(updatedData);
+        SetConsoleTextAttribute(hConsole, ProjectColors::labels);
         cout << "Record deleted successfully." << endl;
     }
 };

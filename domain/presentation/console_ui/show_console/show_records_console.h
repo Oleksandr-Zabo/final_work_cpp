@@ -16,6 +16,7 @@ public:
     ShowRecordsConsole() = default;
     void showAllRecords() {
         vector<string> records = LoadRecord::readAllRecords();
+        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
         for (const string& record : records) {
             MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
             DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
@@ -26,10 +27,12 @@ public:
             treatmentRecord->displayRecord();
             visitRecord->displayRecord();
         }
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
     }
 
     void showRecordsByDoctor(const string& doctorName, const string& doctorSurname) {
         vector<string> records = LoadRecord::readAllRecords();
+        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
         for (const string& record : records) {
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             if (visitRecord->getDoctorName() == doctorName && visitRecord->getDoctorSurname() == doctorSurname) {
@@ -42,10 +45,12 @@ public:
                 visitRecord->displayRecord();
             }
         }
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
     }
 
     void showRecordsByNurse(const string& nurseName, const string& nurseSurname) {
         vector<string> records = LoadRecord::readAllRecords();
+		SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
         for (const string& record : records) {
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             if (visitRecord->getNurseName() == nurseName && visitRecord->getNurseSurname() == nurseSurname) {
@@ -58,16 +63,19 @@ public:
                 visitRecord->displayRecord();
             }
         }
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
     }
 
     void showShortRecordsForAdminStaff() {
         vector<string> records = LoadRecord::readAllRecords();
+        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
         for (const string& record : records) {
             MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             medicalRecord->displayRecord();
             visitRecord->displayRecord();
         }
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
     }
 
     void showRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
@@ -77,13 +85,17 @@ public:
             DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
             TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
+            SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
             medicalRecord->displayRecord();
             diagnosticRecord->displayRecord();
             treatmentRecord->displayRecord();
             visitRecord->displayRecord();
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
         }
         else {
+            SetConsoleTextAttribute(hConsole, ProjectColors::errors);
             cout << "Record not found" << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
         }
     }
 
@@ -93,6 +105,7 @@ public:
         int currentIndex = 0;
 
         while (true) {
+            SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
             for (int i = 0; i < 3 && currentIndex < totalRecords; ++i, ++currentIndex) {
                 string record = records[currentIndex];
                 MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
@@ -104,12 +117,16 @@ public:
                 treatmentRecord->displayRecord();
                 visitRecord->displayRecord();
             }
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 
             if (currentIndex >= totalRecords) {
+                SetConsoleTextAttribute(hConsole, ProjectColors::errors);
                 cout << "End of records." << endl;
+				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
                 break;
             }
 
+            SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
             cout << "Options: (n)ext, (p)revious, (c)ancel: ";
             char option;
             cin >> option;
@@ -124,9 +141,12 @@ public:
                 break;
             }
             else {
+				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
                 cout << "Invalid option. Exiting." << endl;
+				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
                 break;
             }
+            SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
         }
     }
 };

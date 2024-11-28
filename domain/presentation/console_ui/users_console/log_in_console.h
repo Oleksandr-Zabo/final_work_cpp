@@ -11,18 +11,21 @@ class LogInConsole {
 private:
 	LoadUser* loadUser;
 	User* user;
-	AdminConsole* adminConsole;
 	AdminStaffConsole* adminStaffConsole;
 	DoctorConsole* doctorConsole;
 	NurseConsole* nurseConsole;
 	void loadUserFromStorage(const string& username, const string& password) {
 		user = loadUser->findUser(username);
 		if (user == nullptr) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << "User not found" << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 			return;
 		}
 		if (user->getPassword() != password) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << "Invalid password" << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 			return;
 		}
 	}
@@ -45,7 +48,9 @@ private:
 			nurseConsole->NurseMenu();
 		}
 		else {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << "Invalid role" << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		}
 	}
 public:
@@ -56,7 +61,7 @@ public:
 		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		system("pause");
 		string username, password;
-		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		cout << "Enter username: ";
 		cin >> username;
 		cout << "Enter password: ";

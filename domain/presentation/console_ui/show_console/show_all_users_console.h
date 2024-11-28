@@ -11,9 +11,11 @@ public:
 
 	void showAllUsers() {
 		vector<User*> users = LoadUser::readAllUsers();
+		SetConsoleTextAttribute(hConsole, ProjectColors::users_info);
 		for (User* user : users) {
 			cout << user->getUsername() << " " << user->getName() << " " << user->getSurname() << " " << user->getRole() << endl;
 		}
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 	}
 };
 #endif // !SHOW_ALL_USERS_CONSOLE

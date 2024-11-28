@@ -13,14 +13,16 @@ private:
     void loadAdminStaffInfo() {
         std::ifstream file("users.txt");
         if (!file.is_open()) {
-            std::cerr << "Unable to open users.txt" << std::endl;
+            SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+            cerr << "Unable to open users.txt" << std::endl;
+            SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
             return;
         }
 
-        std::string line;
-        while (std::getline(file, line)) {
-            std::istringstream iss(line);
-            std::string uname, pwd, fname, lname;
+        string line;
+        while (getline(file, line)) {
+            istringstream iss(line);
+            string uname, pwd, fname, lname;
             if (!(iss >> uname >> pwd >> fname >> lname)) { break; }
             if (uname == getUsername() && pwd == getPassword()) {
                 setName(fname);
@@ -32,8 +34,10 @@ private:
     }
 
     void showAllShortRecords() {
+        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
         ShowRecordsConsole showRecordsConsole;
         showRecordsConsole.showShortRecordsForAdminStaff();
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
     }
 
 public:
@@ -45,11 +49,23 @@ public:
     void AdminStaffMenu() {
         int choice;
         do {
+            SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			cout << "Welcome, " << getName() << " " << getSurname() << "!" << endl;
             cout << "1. Show short records" << endl;
             cout << "2. Add short record" << endl;
             cout << "3. Exit" << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
             cout << "Enter your choice: ";
-            cin >> choice;
+            try
+            {
+                cin >> choice;
+            }
+            catch (const exception& e)
+            {
+                SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				cout << e.what() << endl;
+				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+            }
             switch (choice) {
             case 1:
                 showAllShortRecords();
@@ -60,10 +76,13 @@ public:
                 break;
             }
             case 3:
+				SetConsoleTextAttribute(hConsole, ProjectColors::labels);
                 cout << "Exiting..." << endl;
                 break;
             default:
+				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
                 cout << "Invalid choice. Please try again." << endl;
+				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
                 break;
             }
         } while (choice != 3);

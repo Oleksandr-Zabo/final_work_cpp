@@ -138,9 +138,6 @@
     <ClInclude Include="domain\presentation\console_ui\users_console\doctor_console.h">
       <Filter>domain\presentation\console_ui\user</Filter>
     </ClInclude>
-    <ClInclude Include="domain\presentation\console_ui\users_console\log_in_console.h">
-      <Filter>domain\presentation\console_ui\user</Filter>
-    </ClInclude>
     <ClInclude Include="domain\presentation\console_ui\users_console\nurse_console.h">
       <Filter>domain\presentation\console_ui\user</Filter>
     </ClInclude>
@@ -149,6 +146,9 @@
     </ClInclude>
     <ClInclude Include="domain\presentation\console_ui\main_console.h">
       <Filter>domain\presentation\console_ui</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\users_console\log_in_console.h">
+      <Filter>domain\presentation\console_ui\user</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

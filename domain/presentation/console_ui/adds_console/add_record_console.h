@@ -15,6 +15,7 @@ public:
 	AddRecordConsole() = default;
 
 	void addRecord() {
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		string name, surname;
 		InsurancePolicy info_about_insurance;
 		Date date_of_birth;
@@ -31,9 +32,12 @@ public:
 		}
 		catch (const exception& ex)
 		{
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << ex.what() << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		}
 		
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		cout << "Enter the information about insurance: ";
 		string policy_number, address, insurance_company;
 		double amount_of_compensation;
@@ -64,13 +68,16 @@ public:
 		}
 		catch (const exception& ex)
 		{
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << ex.what() << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		}
 		info_about_insurance = InsurancePolicy(policy_number, name, address, insurance_company, amount_of_compensation, date_of_start, date_of_end);
 
 
 		MedicalRecord medical_record(name, surname, date_of_birth, info_about_insurance);
 
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		string diagnos, analyses;
 		cout << "Enter the diagnos: ";
 		cin >> diagnos;
@@ -96,8 +103,11 @@ public:
 		}
 		catch (const exception& ex)
 		{
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << ex.what() << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		}
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		cout << "Enter the name of doctor: ";
 		cin >> doctor_name;
 		cout << "Enter the surname of doctor: ";
@@ -110,15 +120,19 @@ public:
 		VisitRecord visit_record(date_of_visit, doctor_name, doctor_surname, nurse_name, nurse_surname);
 
 		if (LoadRecord::is_FindRecord(name, surname, date_of_visit, diagnos)) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << "Record already exists." << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 			return;
 		}
 		SaveRecord::saveRecord(medical_record, diagnostic_record, treatment_record, visit_record);
 
+		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
 		cout << "Record added successfully." << endl;
 	}
 
 	void addShortRecord() {
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		string name, surname;
 		Date date_of_birth;
 		cout << "Enter the name of patient: ";
@@ -134,7 +148,9 @@ public:
 		}
 		catch (const exception& ex)
 		{
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << ex.what() << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		}
 
 		InsurancePolicy info_about_insurance;
@@ -142,6 +158,7 @@ public:
 
 		string doctor_name, doctor_surname, nurse_name, nurse_surname;
 		Date date_of_visit;
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		cout << "Enter the date of visit(dd/mm/yyyy): ";
 		try
 		{
@@ -151,8 +168,11 @@ public:
 		}
 		catch (const exception& ex)
 		{
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << ex.what() << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		}
+		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
 		cout << "Enter the name of doctor: ";
 		cin >> doctor_name;
 		cout << "Enter the surname of doctor: ";
@@ -165,11 +185,13 @@ public:
 		VisitRecord visit_record(date_of_visit, doctor_name, doctor_surname, nurse_name, nurse_surname);
 
 		if (LoadRecord::is_FindRecord(name, surname, date_of_visit, "")) {
+			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 			cout << "Record already exists." << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 			return;
 		}
 		SaveRecord::saveRecord(medical_record, DiagnosticRecord(), TreatmentRecord(), visit_record);
-
+		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
 		cout << "Short record added successfully." << endl;
 	}
 };

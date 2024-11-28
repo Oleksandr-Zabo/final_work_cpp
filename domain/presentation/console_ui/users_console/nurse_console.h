@@ -44,19 +44,35 @@ public:
 	void NurseMenu() {
 		int choice;
 		do {
+			SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			cout << "Welcome, " << getName() << " " << getSurname() << "!" << endl;
 			cout << "1. Show records" << endl;
 			cout << "2. Exit" << endl;
+			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 			cout << "Enter your choice: ";
-			cin >> choice;
+			try {
+				cin >> choice;
+			}
+			catch (ios_base::failure& fail) {
+				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				cerr << "Invalid input. Please try again." << endl;
+				cin.clear();
+				cin.ignore();
+				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+			}
+			
 			switch (choice) {
 			case 1:
 				showNurseRecords();
 				break;
 			case 2:
+				SetConsoleTextAttribute(hConsole, ProjectColors::labels);
 				cout << "Exiting..." << endl;
 				break;
 			default:
+				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
 				cout << "Invalid choice. Please try again." << endl;
+				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 				break;
 			}
 		} while (choice != 2);
