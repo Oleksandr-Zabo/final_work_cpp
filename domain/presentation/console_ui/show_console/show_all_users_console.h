@@ -7,6 +7,8 @@
 
 class ShowAllUsersConsole : public LoadUser {
 public:
+	ShowAllUsersConsole() = default;
+
 	void showAllUsers() {
 		vector<User*> users = LoadUser::readAllUsers();
 		for (User* user : users) {

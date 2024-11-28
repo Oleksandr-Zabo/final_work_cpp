@@ -147,6 +147,9 @@
     <ClInclude Include="domain\presentation\console_ui\users_console\admin_staff_console.h">
       <Filter>domain\presentation\console_ui\user</Filter>
     </ClInclude>
+    <ClInclude Include="domain\presentation\console_ui\main_console.h">
+      <Filter>domain\presentation\console_ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

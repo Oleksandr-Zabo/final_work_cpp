@@ -9,6 +9,8 @@
 
 class DeleteUserConsole : public DeleteUser {
 public:
+	DeleteUserConsole() = default;
+
     void deleteUserByUsernamePassword() {
 		cout << "Enter username: ";
 		string username;

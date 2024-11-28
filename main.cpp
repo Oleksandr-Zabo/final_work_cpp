@@ -2,5 +2,7 @@
 
 int main()
 {
+	MainConsole mainConsole;
+	mainConsole.addAdminUser();
 	return 0;
 }

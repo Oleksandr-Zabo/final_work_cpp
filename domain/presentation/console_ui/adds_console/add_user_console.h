@@ -10,6 +10,8 @@
 
 class AddUserConsole: public SaveUser, public LoadUser{
 public:
+	AddUserConsole() = default;
+
 	// Method to add a new user
 	void addUser() {
 		string username, password, role, name, surname;

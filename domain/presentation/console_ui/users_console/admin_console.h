@@ -8,8 +8,9 @@
 #include "../show_console/show_all_users_console.h"
 #include "../../../data/Users/admin.h"
 
-class AdminConsole : public Admin, public AddUserConsole, public DeleteUserConsole, public ChangeUserConsole, public ShowAllUsersConsole {
+class AdminConsole : public Admin{
 private:
+
 	void getAdminInfo() {
 		std::ifstream file("users.txt");
 		if (!file.is_open()) {
@@ -32,7 +33,7 @@ private:
 public:
 	AdminConsole() = default;
 
-	AdminConsole(const string& username, const string& password){
+	AdminConsole(const string& username, const string& password) : Admin(username, password){
 		setUsername(username);
 		setPassword(password);
 		getAdminInfo();
@@ -58,7 +59,8 @@ public:
 			switch (choice)
 			{
 			case 1:
-				AddUserConsole::addUser();
+				AddUserConsole * addUserConsole;
+				addUserConsole->addUser();
 				break;
 
 			case 2:
@@ -77,10 +79,12 @@ public:
 				switch (choice_1)
 				{
 				case 1:
-					DeleteUserConsole::deleteUserByUsernamePassword();
+					DeleteUserConsole * deleteUserConsole;
+					deleteUserConsole->deleteUserByUsernamePassword();
 					break;
 				case 2:
-					DeleteUserConsole::deleteUserByNameSurnameRole();
+					DeleteUserConsole * deleteUserConsole_1;
+					deleteUserConsole_1->deleteUserByNameSurnameRole();
 					break;
 				default:
 					cout << "Invalid choice" << endl;
@@ -101,13 +105,15 @@ public:
 				{
 					cout << "Invalid choice" << endl;
 				}
+
+				ChangeUserConsole* changeUserConsole;
 				switch (choice_2)
 				{
 				case 1:
-					ChangeUserConsole::changeUserByUsernamePassword();
+					changeUserConsole->changeUserByUsernamePassword();
 					break;
 				case 2:
-					ChangeUserConsole::changeUserByNameSurnameRole();
+					changeUserConsole->changeUserByNameSurnameRole();
 					break;
 				default:
 					cout << "Invalid choice" << endl;
@@ -116,7 +122,8 @@ public:
 				break;
 
 			case 4:
-				ShowAllUsersConsole::showAllUsers();
+				ShowAllUsersConsole * showAllUsersConsole;
+				showAllUsersConsole->showAllUsers();
 				break;
 
 			case 0:
@@ -130,4 +137,3 @@ public:
 	}
 };
 #endif // !ADMIN_CONSOLE
-

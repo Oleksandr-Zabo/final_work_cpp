@@ -6,6 +6,7 @@
 class Admin : public User {
 public:
     // Constructor
+	Admin() = default;
     Admin(const string& uname, const string& pwd) : User(uname, pwd) {}
 
     // Method to display the admin's role

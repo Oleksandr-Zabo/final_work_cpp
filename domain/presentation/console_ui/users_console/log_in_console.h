@@ -29,7 +29,7 @@ private:
 	void showMenu() {
 		string role = user->getRole();
 		if (role == "Admin") {
-            adminConsole = new AdminConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
+            adminConsole = new AdminConsole(user->getUsername(), user->getPassword());
 			adminConsole->adminMenu();
 		}
 		else if (role == "Admin staff") {
@@ -51,6 +51,8 @@ private:
 public:
     
 	void logIn() {
+		cout << "Log in to system: ";
+		system("pause");
 		string username, password;
 		cout << "Enter username: ";
 		cin >> username;

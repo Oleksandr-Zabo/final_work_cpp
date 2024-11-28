@@ -19,7 +19,7 @@ public:
     }
 
     // Method to decrypt data using Caesar cipher with a shift of 3
-    string decrypt(const string& data) const {
+    string decrypt(const string& data) {
         string decrypted = data;
         for (char& c : decrypted) {
             c = c - 3;

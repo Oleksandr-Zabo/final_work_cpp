@@ -154,6 +154,7 @@
     <ClInclude Include="domain\presentation\console_ui\change_console\change_user_console.h" />
     <ClInclude Include="domain\presentation\console_ui\delete_console\delete_record_console.h" />
     <ClInclude Include="domain\presentation\console_ui\delete_console\delete_user_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\main_console.h" />
     <ClInclude Include="domain\presentation\console_ui\show_console\show_all_users_console.h" />
     <ClInclude Include="domain\presentation\console_ui\show_console\show_records_console.h" />
     <ClInclude Include="domain\presentation\console_ui\users_console\admin_console.h" />

@@ -22,7 +22,7 @@ protected:
     }
 
 public:
-    SaveUser() = default;
+    SaveUser() : FileStorage("users.txt") {} // Initialize with a filename
 
     void saveUser(const User& user) {
         string data = convertUserToString(user);

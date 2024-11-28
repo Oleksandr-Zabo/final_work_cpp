@@ -8,6 +8,8 @@
 
 class ChangeUserConsole : public AddUserConsole, public DeleteUserConsole {
 public:
+	ChangeUserConsole() = default;
+
     void changeUserByUsernamePassword() {
 		cout << "Enter the old username: ";
 		string oldUsername;
