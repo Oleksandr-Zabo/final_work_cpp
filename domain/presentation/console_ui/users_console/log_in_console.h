@@ -51,13 +51,17 @@ private:
 public:
     
 	void logIn() {
-		cout << "Log in to system: ";
+		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+		cout << "Log in to system: " << endl;
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		system("pause");
 		string username, password;
+		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
 		cout << "Enter username: ";
 		cin >> username;
 		cout << "Enter password: ";
 		cin >> password;
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		loadUserFromStorage(username, password);
 		if (user != nullptr) {
 			showMenu();

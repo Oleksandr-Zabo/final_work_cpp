@@ -16,7 +16,9 @@ public:
 		logInConsole = new LogInConsole();
 	}
 	void start() {
+		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
 		cout << "Welcome to the Hospital Management System" << endl;
+		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
 		system("pause");
 		system("cls");
 		logInConsole->logIn();
