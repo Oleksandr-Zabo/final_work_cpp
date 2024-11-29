@@ -11,7 +11,7 @@ public:
 	ChangeUserConsole() = default;
 
     void changeUserByUsernamePassword() {
-		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+		Console_colors::inputs_color();
 		cout << "Enter the old username: ";
 		string oldUsername;
 		cin >> oldUsername;
@@ -21,7 +21,7 @@ public:
 
         if (DeleteUserConsole::is_findUser(oldUsername)) {
             delete_user_by_username_password(oldUsername, oldPassword);
-			SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			Console_colors::labels_color();
 			cout << "Enter new data:" << endl;
             AddUserConsole::addUser();
         }
@@ -30,7 +30,7 @@ public:
 
 
     void changeUserByNameSurnameRole() {
-		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+		Console_colors::inputs_color();
 		cout << "Enter the old name: ";
 		string oldName;
 		cin >> oldName;
@@ -47,7 +47,7 @@ public:
 
         if (DeleteUserConsole::is_findUserNameSurname(oldName, oldSurname)) {
             delete_user_by_name_surname_role(oldName, oldSurname, oldRole);
-			SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			Console_colors::labels_color();
             cout << "Enter new data:" << endl;
             AddUserConsole::addUser();
         }

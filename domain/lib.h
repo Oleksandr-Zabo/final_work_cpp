@@ -11,15 +11,6 @@
 using namespace std;
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-enum ProjectColors //enum for project colors
-{
-	defoult = 7,
-	labels = 10,
-	inputs = 15,
-	record_info = 11,
-	users_info= 14,
-	errors = 12
-};
 
 #endif // !LIB_H
 

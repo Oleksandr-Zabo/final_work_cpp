@@ -42,6 +42,9 @@
 
 //console ui
 // 
+// console colors
+#include "presentation/console_ui/console_colors.h"
+
 //add console
 #include "presentation/console_ui/adds_console/add_record_console.h"
 #include "presentation/console_ui/adds_console/add_user_console.h"

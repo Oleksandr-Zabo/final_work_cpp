@@ -152,6 +152,7 @@
     <ClInclude Include="domain\presentation\console_ui\adds_console\add_user_console.h" />
     <ClInclude Include="domain\presentation\console_ui\change_console\change_record_console.h" />
     <ClInclude Include="domain\presentation\console_ui\change_console\change_user_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\console_colors.h" />
     <ClInclude Include="domain\presentation\console_ui\delete_console\delete_record_console.h" />
     <ClInclude Include="domain\presentation\console_ui\delete_console\delete_user_console.h" />
     <ClInclude Include="domain\presentation\console_ui\main_console.h" />

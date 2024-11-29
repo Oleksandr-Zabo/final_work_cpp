@@ -4,6 +4,7 @@
 #include "../../../lib.h"
 #include "../../../data/Users/user.h"
 #include "../../../data/FileStorage/load_user.h"
+#include "../console_colors.h"
 
 class ShowAllUsersConsole : public LoadUser {
 public:
@@ -11,11 +12,18 @@ public:
 
 	void showAllUsers() {
 		vector<User*> users = LoadUser::readAllUsers();
-		SetConsoleTextAttribute(hConsole, ProjectColors::users_info);
+		
+		int i = 1;
 		for (User* user : users) {
-			cout << user->getUsername() << " " << user->getName() << " " << user->getSurname() << " " << user->getRole() << endl;
+			Console_colors::users_info_num();
+			cout << "User " << i << " :" << endl;
+			Console_colors::users_info_color();
+			cout << "Username: " << user->getUsername() << "\nName: " << user->getName() << "\nSurname: " << user->getSurname() << "\nRole: " << user->getRole() << endl;
+			i += 1;
 		}
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+		Console_colors::default_color();
+		system("pause");
+		system("cls");
 	}
 };
 #endif // !SHOW_ALL_USERS_CONSOLE

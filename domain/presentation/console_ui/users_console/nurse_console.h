@@ -7,20 +7,22 @@
 #include "../change_console/change_record_console.h"
 #include "../show_console/show_records_console.h"
 #include "../../../data/Users/nurse.h"
+#include "../console_colors.h"
 
 class NurseConsole : public Nurse {
 private:
 	void loadNurseInfo() {
 		std::ifstream file("users.txt");
 		if (!file.is_open()) {
+			Console_colors::errors_color();
 			std::cerr << "Unable to open users.txt" << std::endl;
 			return;
 		}
 
-		std::string line;
-		while (std::getline(file, line)) {
-			std::istringstream iss(line);
-			std::string uname, pwd, nname, nsurname;
+		string line;
+		while (getline(file, line)) {
+			istringstream iss(line);
+			string uname, pwd, nname, nsurname;
 			if (!(iss >> uname >> pwd >> nname >> nsurname)) { break; }
 			if (uname == getUsername() && pwd == getPassword()) {
 				setName(nname);
@@ -44,21 +46,21 @@ public:
 	void NurseMenu() {
 		int choice;
 		do {
-			SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			Console_colors::labels_color();
 			cout << "Welcome, " << getName() << " " << getSurname() << "!" << endl;
 			cout << "1. Show records" << endl;
 			cout << "2. Exit" << endl;
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+			Console_colors::default_color();
 			cout << "Enter your choice: ";
 			try {
 				cin >> choice;
 			}
 			catch (ios_base::failure& fail) {
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				Console_colors::errors_color();
 				cerr << "Invalid input. Please try again." << endl;
 				cin.clear();
 				cin.ignore();
-				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+				Console_colors::default_color();
 			}
 			
 			switch (choice) {
@@ -66,13 +68,14 @@ public:
 				showNurseRecords();
 				break;
 			case 2:
-				SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+				Console_colors::labels_color();
 				cout << "Exiting..." << endl;
-				break;
+				Console_colors::default_color();
+				exit(0);
 			default:
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				Console_colors::errors_color();
 				cout << "Invalid choice. Please try again." << endl;
-				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+				Console_colors::default_color();
 				break;
 			}
 		} while (choice != 2);

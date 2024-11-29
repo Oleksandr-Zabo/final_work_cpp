@@ -1,77 +1,100 @@
-#ifndef LOG_IN_CONSOLE
-#define LOG_IN_CONSOLE
-#include "../../../lib.h"
+// domain/presentation/console_ui/users_console/log_in_console.h
+
+#ifndef LOG_IN_CONSOLE_H
+#define LOG_IN_CONSOLE_H
+
 #include "../users_console/admin_console.h"
-#include "../users_console/admin_staff_console.h"
-#include "../users_console/doctor_console.h"
-#include "../users_console/nurse_console.h"
-#include "../../../data/FileStorage/load_user.h"
 
 class LogInConsole {
 private:
-	LoadUser* loadUser;
-	User* user;
-	AdminStaffConsole* adminStaffConsole;
-	DoctorConsole* doctorConsole;
-	NurseConsole* nurseConsole;
-	void loadUserFromStorage(const string& username, const string& password) {
-		user = loadUser->findUser(username);
-		if (user == nullptr) {
-			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
-			cout << "User not found" << endl;
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
-			return;
-		}
-		if (user->getPassword() != password) {
-			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
-			cout << "Invalid password" << endl;
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
-			return;
-		}
-	}
-	void showMenu() {
-		string role = user->getRole();
-		if (role == "Admin") {
+    LoadUser* loadUser;
+    User* user;
+    AdminConsole* adminConsole;
+    AdminStaffConsole* adminStaffConsole;
+    DoctorConsole* doctorConsole;
+    NurseConsole* nurseConsole;
+    void loadUserFromStorage(const string& username, const string& password) {
+        user = loadUser->findUser(username);
+        if (user == nullptr) {
+            Console_colors::errors_color();
+            cout << "User not found" << endl;
+            Console_colors::default_color();
+            return;
+        }
+        if (user->getPassword() != password) {
+            Console_colors::errors_color();
+            cout << "Invalid password" << endl;
+            Console_colors::default_color();
+            return;
+        }
+    }
+    void showMenu() {
+        string role = user->getRole();
+        if (role == "Admin") {
+            system("pause");
+            system("cls");
             adminConsole = new AdminConsole(user->getUsername(), user->getPassword());
-			adminConsole->adminMenu();
-		}
-		else if (role == "Admin staff") {
-			adminStaffConsole = new AdminStaffConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
-			adminStaffConsole->AdminStaffMenu();
-		}
-		else if (role == "Doctor") {
-			doctorConsole = new DoctorConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
-			doctorConsole->DoctorMenu();
-		}
-		else if (role == "Nurse") {
-			nurseConsole = new NurseConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
-			nurseConsole->NurseMenu();
-		}
-		else {
-			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
-			cout << "Invalid role" << endl;
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
-		}
-	}
+            adminConsole->adminMenu();
+        }
+        else if (role == "Admin staff") {
+            system("pause");
+            system("cls");
+            adminStaffConsole = new AdminStaffConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
+            adminStaffConsole->AdminStaffMenu();
+        }
+        else if (role == "Doctor") {
+            system("pause");
+            system("cls");
+            doctorConsole = new DoctorConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
+            doctorConsole->DoctorMenu();
+        }
+        else if (role == "Nurse") {
+            system("pause");
+            system("cls");
+            nurseConsole = new NurseConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
+            nurseConsole->NurseMenu();
+        }
+        else {
+            Console_colors::errors_color();
+            cout << "Invalid role" << endl;
+            Console_colors::default_color();
+        }
+    }
 public:
-    
-	void logIn() {
-		SetConsoleTextAttribute(hConsole, ProjectColors::labels);
-		cout << "Log in to system: " << endl;
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
-		system("pause");
-		string username, password;
-		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
-		cout << "Enter username: ";
-		cin >> username;
-		cout << "Enter password: ";
-		cin >> password;
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
-		loadUserFromStorage(username, password);
-		if (user != nullptr) {
-			showMenu();
-		}
-	}
-};
-#endif // !LOG_IN_CONSOLE
+    LogInConsole() {
+        loadUser = new LoadUser();
+        user = nullptr;
+        adminConsole = nullptr;
+        adminStaffConsole = nullptr;
+        doctorConsole = nullptr;
+        nurseConsole = nullptr;
+    }
 
+    ~LogInConsole() {
+        delete loadUser;
+        delete user;
+        delete adminConsole;
+        delete adminStaffConsole;
+        delete doctorConsole;
+        delete nurseConsole;
+    }
+
+    void logIn() {
+        Console_colors::labels_color();
+        cout << "Log in to system: " << endl;
+        Console_colors::default_color();
+        string username, password;
+        Console_colors::inputs_color();
+        cout << "Enter username: ";
+        cin >> username;
+        cout << "Enter password: ";
+        cin >> password;
+        Console_colors::default_color();
+        loadUserFromStorage(username, password);
+        if (user != nullptr) {
+            showMenu();
+        }
+    }
+};
+
+#endif // LOG_IN_CONSOLE_H

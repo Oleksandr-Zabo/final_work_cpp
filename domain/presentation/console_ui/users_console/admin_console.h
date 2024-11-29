@@ -14,7 +14,7 @@ private:
 	void getAdminInfo() {
 		std::ifstream file("users.txt");
 		if (!file.is_open()) {
-            SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+            Console_colors::errors_color();
 			std::cerr << "Unable to open users.txt" << std::endl;
 			return;
 		}
@@ -44,14 +44,14 @@ public:
         int choice;
         do
         {
-            SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+            Console_colors::labels_color();
             cout << "1. Add user" << endl;
             cout << "2. Delete user" << endl;
             cout << "3. Change user" << endl;
             cout << "4. Show all users" << endl;
             cout << "0. Exit" << endl;
             
-			SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+            Console_colors::inputs_color();
             try {
                 
                 do
@@ -61,15 +61,15 @@ public:
 
 					if (choice < 0 || choice > 4)
 					{
-						SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                        Console_colors::errors_color();
 						cout << "Invalid choice" << endl;
-						SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+                        Console_colors::inputs_color();
 					}
                 } while (choice < 0 || choice > 4);
             }
             catch (const exception&)
             {
-                SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                Console_colors::errors_color();
                 cout << "Invalid choice" << endl;
             }
             switch (choice)
@@ -77,17 +77,19 @@ public:
             case 1:
                     
             {
+                system("pause");
+                system("cls");
                 AddUserConsole addUserConsole;
                 addUserConsole.addUser();
                 break;
             }
             case 2:
             {
-                SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+                Console_colors::labels_color();
                 cout << "How do you want to delete user?" << endl;
                 cout << "1. By username and password" << endl;
                 cout << "2. By name, surname and role" << endl;
-                SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+                Console_colors::inputs_color();
                 cout << "Enter your choice: ";
                 int choice_1;
                 try {
@@ -95,13 +97,15 @@ public:
                 }
                 catch (const exception&)
                 {
-					SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                    Console_colors::errors_color();
                     cout << "Invalid choice" << endl;
                 }
                 switch (choice_1)
                 {
                 case 1:
                 {
+                    system("pause");
+                    system("cls");
                     DeleteUserConsole deleteUserConsole;
                     deleteUserConsole.deleteUserByUsernamePassword();
                     break;
@@ -110,10 +114,12 @@ public:
                 {
                     DeleteUserConsole deleteUserConsole_1;
                     deleteUserConsole_1.deleteUserByNameSurnameRole();
+                    system("pause");
+                    system("cls");
                     break;
                 }
                 default:
-					SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                    Console_colors::errors_color();
                     cout << "Invalid choice" << endl;
                     break;
                 }
@@ -121,11 +127,11 @@ public:
             }
             case 3:
             {
-                SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+                Console_colors::labels_color();
                 cout << "How do you want to change user?" << endl;
                 cout << "1. By username and password" << endl;
                 cout << "2. By name, surname and role" << endl;
-				SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+                Console_colors::inputs_color();
                 cout << "Enter your choice: ";
                 int choice_2;
                 try {
@@ -133,7 +139,7 @@ public:
                 }
                 catch (const std::exception&)
                 {
-					SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                    Console_colors::errors_color();
                     cout << "Invalid choice" << endl;
                 }
 
@@ -141,13 +147,17 @@ public:
                 switch (choice_2)
                 {
                 case 1:
+                    system("pause");
+                    system("cls");
                     changeUserConsole.changeUserByUsernamePassword();
                     break;
                 case 2:
+                    system("pause");
+                    system("cls");
                     changeUserConsole.changeUserByNameSurnameRole();
                     break;
                 default:
-					SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                    Console_colors::errors_color();
                     cout << "Invalid choice" << endl;
                     break;
                 }
@@ -155,14 +165,21 @@ public:
             }
             case 4:
             {
+                system("pause");
+                system("cls");
                 ShowAllUsersConsole showAllUsersConsole;
                 showAllUsersConsole.showAllUsers();
                 break;
             }
             case 0:
-                break;
+                system("pause");
+                system("cls");
+				Console_colors::labels_color();
+				cout << "Exiting..." << endl;
+				Console_colors::default_color();
+                exit(0);
             default:
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                Console_colors::errors_color();
                 cout << "Invalid choice" << endl;
                 break;
             }

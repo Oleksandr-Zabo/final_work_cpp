@@ -7,6 +7,7 @@
 #include "../../../data/Users/nurse.h"
 #include "../../../data/FileStorage/load_user.h"
 #include "../../../data/FileStorage/save_user.h"
+#include "../console_colors.h"
 
 class AddUserConsole: public SaveUser, public LoadUser{
 public:
@@ -17,14 +18,31 @@ public:
 
 	// Method to add a new user
 	void addUser() {
-		string username, password, role, name, surname;
-		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+		int role;
+		string username, password, name, surname;
+		Console_colors::inputs_color();
 		cout << "Enter the username: ";
 		cin >> username;
 		cout << "Enter the password: ";
 		cin >> password;
-		cout << "Enter the role (AdminStaff, Doctor, Nurse): ";
-		cin >> role;
+		
+		do
+		{
+			cout << "Enter the role (1- AdminStaff, 2- Doctor, 3- Nurse): ";
+			cin >> role;
+			try {
+				if (cin.fail()) {
+					throw "Invalid role";
+				}
+			}
+			catch (const char* message) {
+				Console_colors::errors_color();
+				cerr << message << endl;
+				cin.clear();
+				cin.ignore(10000, '\n');
+			}
+		} while (role < 1 || role > 3);
+		
 		cout << "Enter the name: ";
 		cin >> name;
 		cout << "Enter the surname: ";
@@ -32,33 +50,34 @@ public:
 
 		bool is_find_user = LoadUser::is_findUser(username);
 		if (is_find_user) {
-			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+			Console_colors::errors_color();
 			cout << "User already exists" << endl;
+			system("pause");
+			system("cls");
 			return;
 		}
 
 		else {
-			if (role == "AdminStaff") {
+			if (role == 1) {
 				AdminStaff adminStaff(username, password, name, surname);
 
 				saveUser(adminStaff);
 			}
-			else if (role == "Doctor") {
+			else if (role == 2) {
 				Doctor doctor(username, password, name, surname);
 				saveUser(doctor);
 			}
-			else if (role == "Nurse") {
+			else if (role == 3) {
 				Nurse nurse(username, password, name, surname);
 				saveUser(nurse);
 			}
 			else {
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				Console_colors::errors_color();
 				cout << "Invalid role" << endl;
 			}
 		}
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+		Console_colors::default_color();
 
-		
 	}
 };
 #endif // !ADD_USER_CONSOLE

@@ -62,8 +62,8 @@ public:
 
     User* createUserFromString(const string& userInfo) {
         stringstream ss(userInfo);
-		string username, password, name, surname, role;
-        ss >> username, password, name, surname, role;
+        string username, password, name, surname, role;
+        ss >> username >> password >> name >> surname >> role;
 
         if (role == "Admin") {
             return new Admin(username, password);

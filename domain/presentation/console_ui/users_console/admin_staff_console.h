@@ -7,15 +7,16 @@
 #include "../change_console/change_record_console.h"
 #include "../show_console/show_records_console.h"
 #include "../../../data/Users/admin_staff.h"
+#include "../console_colors.h"
 
 class AdminStaffConsole : public AdminStaff {
 private:
     void loadAdminStaffInfo() {
         std::ifstream file("users.txt");
         if (!file.is_open()) {
-            SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+            Console_colors::errors_color();
             cerr << "Unable to open users.txt" << std::endl;
-            SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+            Console_colors::default_color();
             return;
         }
 
@@ -34,10 +35,10 @@ private:
     }
 
     void showAllShortRecords() {
-        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+        Console_colors::record_info_color();
         ShowRecordsConsole showRecordsConsole;
         showRecordsConsole.showShortRecordsForAdminStaff();
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+        Console_colors::default_color();
     }
 
 public:
@@ -49,12 +50,12 @@ public:
     void AdminStaffMenu() {
         int choice;
         do {
-            SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+            Console_colors::labels_color();
 			cout << "Welcome, " << getName() << " " << getSurname() << "!" << endl;
             cout << "1. Show short records" << endl;
             cout << "2. Add short record" << endl;
             cout << "3. Exit" << endl;
-			SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+            Console_colors::inputs_color();
             cout << "Enter your choice: ";
             try
             {
@@ -62,27 +63,35 @@ public:
             }
             catch (const exception& e)
             {
-                SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                Console_colors::errors_color();
 				cout << e.what() << endl;
-				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+                Console_colors::default_color();
             }
             switch (choice) {
             case 1:
+                system("pause");
+                system("cls");
                 showAllShortRecords();
                 break;
             case 2: {
+                system("pause");
+                system("cls");
                 AddRecordConsole addRecordConsole{};
                 addRecordConsole.addShortRecord();
                 break;
             }
-            case 3:
-				SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+            case 3: {
+                system("pause");
+                system("cls");
+                Console_colors::labels_color();
                 cout << "Exiting..." << endl;
-                break;
+                Console_colors::default_color();
+                exit(0);
+            }
             default:
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                Console_colors::errors_color();
                 cout << "Invalid choice. Please try again." << endl;
-				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+                Console_colors::default_color();
                 break;
             }
         } while (choice != 3);

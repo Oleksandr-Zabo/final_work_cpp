@@ -10,72 +10,105 @@
 #include "../../../data/FileStorage/save_record.h"
 #include "../../../data/FileStorage/load_record.h"
 #include "../../../data/FileStorage/delete_record.h"
+#include "../console_colors.h"
 
 class ShowRecordsConsole : public LoadRecord {
 public:
     ShowRecordsConsole() = default;
     void showAllRecords() {
         vector<string> records = LoadRecord::readAllRecords();
-        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+        int i = 1;
         for (const string& record : records) {
             MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
             DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
             TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
+
+            Console_colors::record_info_num();
+            cout << "Record " << i << " :" << endl;
+            Console_colors::record_info_color();
             medicalRecord->displayRecord();
             diagnosticRecord->displayRecord();
             treatmentRecord->displayRecord();
             visitRecord->displayRecord();
+
+            i++;
         }
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+        Console_colors::default_color();
+        system("pause");
+        system("cls");
     }
 
     void showRecordsByDoctor(const string& doctorName, const string& doctorSurname) {
         vector<string> records = LoadRecord::readAllRecords();
-        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+        int i = 1;
         for (const string& record : records) {
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             if (visitRecord->getDoctorName() == doctorName && visitRecord->getDoctorSurname() == doctorSurname) {
                 MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
                 DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
                 TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
+
+				Console_colors::record_info_num();
+				cout << "Record " << i << " :" << endl;
+                Console_colors::record_info_color();
                 medicalRecord->displayRecord();
                 diagnosticRecord->displayRecord();
                 treatmentRecord->displayRecord();
                 visitRecord->displayRecord();
+
+                i++;
             }
         }
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+        Console_colors::default_color();
+        system("pause");
+        system("cls");
     }
 
     void showRecordsByNurse(const string& nurseName, const string& nurseSurname) {
         vector<string> records = LoadRecord::readAllRecords();
-		SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+        int i = 0;
         for (const string& record : records) {
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             if (visitRecord->getNurseName() == nurseName && visitRecord->getNurseSurname() == nurseSurname) {
                 MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
                 DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
                 TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
+
+                Console_colors::record_info_num();
+                cout << "Record " << i << " :" << endl;
+                Console_colors::record_info_color();
                 medicalRecord->displayRecord();
                 diagnosticRecord->displayRecord();
                 treatmentRecord->displayRecord();
                 visitRecord->displayRecord();
+
+                i++;
             }
         }
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+        Console_colors::default_color();
+        system("pause");
+        system("cls");
     }
 
     void showShortRecordsForAdminStaff() {
         vector<string> records = LoadRecord::readAllRecords();
-        SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+        int i = 0;
         for (const string& record : records) {
             MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
+
+            Console_colors::record_info_num();
+            cout << "Record " << i << " :" << endl;
+            Console_colors::record_info_color();
             medicalRecord->displayRecord();
             visitRecord->displayRecord();
+
+            i++;
         }
-		SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+        Console_colors::default_color();
+        system("pause");
+        system("cls");
     }
 
     void showRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
@@ -85,17 +118,21 @@ public:
             DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
             TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
-            SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+            Console_colors::record_info_color();
             medicalRecord->displayRecord();
             diagnosticRecord->displayRecord();
             treatmentRecord->displayRecord();
             visitRecord->displayRecord();
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+            Console_colors::default_color();
+            system("pause");
+            system("cls");
         }
         else {
-            SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+            Console_colors::errors_color();
             cout << "Record not found" << endl;
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+            Console_colors::default_color();
+            system("pause");
+            system("cls");
         }
     }
 
@@ -103,50 +140,61 @@ public:
         vector<string> records = LoadRecord::readAllRecords();
         int totalRecords = records.size();
         int currentIndex = 0;
-
         while (true) {
-            SetConsoleTextAttribute(hConsole, ProjectColors::record_info);
+            Console_colors::record_info_color();
             for (int i = 0; i < 3 && currentIndex < totalRecords; ++i, ++currentIndex) {
                 string record = records[currentIndex];
                 MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
                 DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
                 TreatmentRecord* treatmentRecord = createTreatmentRecordFromString(record);
                 VisitRecord* visitRecord = createVisitRecordFromString(record);
+
+                Console_colors::record_info_num();
+				cout << "Record " << currentIndex + 1 << " :" << endl;
+                Console_colors::record_info_color();
                 medicalRecord->displayRecord();
                 diagnosticRecord->displayRecord();
                 treatmentRecord->displayRecord();
                 visitRecord->displayRecord();
             }
-			SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+            Console_colors::default_color();
 
             if (currentIndex >= totalRecords) {
-                SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                Console_colors::errors_color();
                 cout << "End of records." << endl;
-				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+                Console_colors::default_color();
                 break;
             }
 
-            SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+            Console_colors::inputs_color();
             cout << "Options: (n)ext, (p)revious, (c)ancel: ";
             char option;
             cin >> option;
 
             if (option == 'n') {
+                system("pause");
+                system("cls");
                 continue;
             }
             else if (option == 'p' && currentIndex > 3) {
                 currentIndex -= 6; // Move back to the previous set of 3 records
+                system("pause");
+                system("cls");
             }
             else if (option == 'c') {
+                system("pause");
+                system("cls");
                 break;
             }
             else {
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+                Console_colors::errors_color();
                 cout << "Invalid option. Exiting." << endl;
-				SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+                Console_colors::default_color();
                 break;
             }
-            SetConsoleTextAttribute(hConsole, ProjectColors::defoult);
+            Console_colors::default_color();
+            system("pause");
+            system("cls");
         }
     }
 };

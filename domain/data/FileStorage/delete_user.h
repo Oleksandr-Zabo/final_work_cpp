@@ -18,7 +18,7 @@ public:
             users.erase(it, users.end());
             ofstream outFile("users.txt");
             for (const auto& u : users) {
-                outFile << convertUserToString(*u) << endl;
+                outFile << SaveUser::encrypt(convertUserToString(*u)) << endl;
             }
             outFile.close();
         }
@@ -47,4 +47,3 @@ public:
     }
 };
 #endif // DELETE_USER
-

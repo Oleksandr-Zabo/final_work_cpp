@@ -6,13 +6,14 @@
 #include "../../../data/Users/doctor.h"
 #include "../../../data/Users/nurse.h"
 #include "../../../data/FileStorage/delete_user.h"
+#include "../console_colors.h"
 
 class DeleteUserConsole : public DeleteUser {
 public:
 	DeleteUserConsole() = default;
 
     void deleteUserByUsernamePassword() {
-		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+		Console_colors::inputs_color();
 		cout << "Enter username: ";
 		string username;
 		cin >> username;
@@ -23,20 +24,22 @@ public:
         if (is_findUser(username)) {
             delete_user_by_username_password(username, password);
 			if (username == "Admin" || username == "admin") {
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				Console_colors::errors_color();
 				cout << "Admin cannot be deleted." << endl;
 				return;
 			}
-			SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			Console_colors::labels_color();
             cout << "User deleted successfully." << endl;
+			system("pause");
+			system("cls");
         } else {
-			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+			Console_colors::errors_color();
             cout << "User not found." << endl;
         }
     }
 
     void deleteUserByNameSurnameRole() {
-		SetConsoleTextAttribute(hConsole, ProjectColors::inputs);
+		Console_colors::inputs_color();
 		cout << "Enter name: ";
 		string name;
 		cin >> name;
@@ -52,15 +55,17 @@ public:
 		
         if (is_findUserNameSurname(name, surname)) {
             if (role == "Admin") {
-				SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+				Console_colors::errors_color();
 				cout << "Admin cannot be deleted." << endl;
 				return;
 			}
             delete_user_by_name_surname_role(name, surname, role);
-			SetConsoleTextAttribute(hConsole, ProjectColors::labels);
+			Console_colors::labels_color();
             cout << "User deleted successfully." << endl;
+			system("pause");
+			system("cls");
         } else {
-			SetConsoleTextAttribute(hConsole, ProjectColors::errors);
+			Console_colors::errors_color();
             cout << "User not found." << endl;
         }
     }

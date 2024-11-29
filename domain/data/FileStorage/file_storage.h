@@ -36,7 +36,7 @@ public:
     // Method to save data to a file with encryption
     void saveData(const string& data) override {
         try {
-            ofstream outFile(filename);
+            ofstream outFile(filename, ios::app);  // Open file in append mode
             if (!outFile.is_open()) {
                 throw runtime_error("Cannot open file for writing");
             }
