@@ -23,15 +23,16 @@ public:
         return "Nurse";
     }
 
-    // Method to assist doctors (example function)
-    void assistDoctor() const {
-        cout << "Nurse assisting doctor" << endl;
-    }
+	// Method to get the nurse's name
+	string getName() const override{
+		return name;
+	}
 
-    // Method to monitor patient vitals (example function)
-    void monitorVitals() const {
-        cout << "Nurse monitoring patient vitals" << endl;
-    }
+	// Method to get the nurse's surname
+	string getSurname() const override {
+		return surname;
+	}
+
 };
 
 #endif // !NURSE

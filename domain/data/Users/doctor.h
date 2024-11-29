@@ -23,15 +23,16 @@ public:
         return "Doctor";
     }
 
-    // Method to diagnose a patient (example function)
-    void diagnose() const {
-        cout << "Doctor diagnosing a patient" << endl;
-    }
+	// Method to get the doctor's name
+	string getName() const override{
+		return name;
+	}
 
-    // Method to prescribe treatment (example function)
-    void prescribeTreatment() const {
-        cout << "Doctor prescribing treatment" << endl;
-    }
+	// Method to get the doctor's surname
+	string getSurname() const override{
+		return surname;
+	}
+
 };
 
 #endif // !DOCTOR
