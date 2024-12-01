@@ -1,2 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MainConsole">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAABAAAAgAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\main_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Console_colors">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAABAIACAFAAhAAAAAAAAAEkgYAQAAACAAAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\console_colors.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
