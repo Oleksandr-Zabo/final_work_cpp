@@ -159,4 +159,9 @@
       <Filter>main</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd">
+      <Filter>main</Filter>
+    </None>
+  </ItemGroup>
 </Project>
