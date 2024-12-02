@@ -10,6 +10,7 @@
 
 #include "file_storage.h"
 #include "save_record.h"
+#include "../../presentation/console_ui/console_colors.h"
 
 class LoadRecord : public FileStorage {
 public:
@@ -35,6 +36,13 @@ public:
 			}
 			file.close();
 		}
+		else {
+			Console_colors::errors_color();
+			cout << "Unable to open file" << endl;
+			Console_colors::default_color();
+			system("pause");
+			system("cls");
+		}
 		return records;
 	}
 
@@ -48,6 +56,7 @@ public:
 				return record;
 			}
 		}
+		Console_colors::errors_color();
 		return "Record not found";
 	}
 

@@ -6,7 +6,7 @@
 #include "../adds_console/add_record_console.h"
 #include "../console_colors.h"
 
-class ChangeRecordConsole : public AddRecordConsole, public DeleteRecordConsole, public LoadRecord {
+class ChangeRecordConsole : public AddRecordConsole, public DeleteRecordConsole {
 public:
 	void changeRecord() {
 		Console_colors::inputs_color();

@@ -7,7 +7,7 @@
       <FileName>domain\presentation\console_ui\main_console.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Console_colors" Collapsed="true">
+  <Class Name="Console_colors">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gBAABAIACAFAAhAAAAAAAAAEkgYAQAAACAAAAAAAAAA=</HashCode>
