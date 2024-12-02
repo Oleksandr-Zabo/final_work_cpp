@@ -35,10 +35,12 @@ public:
         }
     }
 
-    void delete_user_by_name_surname_role(const string& name, const string& surname, const string& role) {
+    void delete_user_by_name_surname_role(const string& name, const string& surname, int role) {
         vector<User*> users = readAllUsers();
         auto it = find_if(users.begin(), users.end(), [&](User* u) {
-            return u->getName() == name && u->getSurname() == surname && u->getRole() == role;
+            return (role == 1 && u->getRole() == "Doctor" && u->getName() == name && u->getSurname() == surname) ||
+                (role == 2 && u->getRole() == "Nurse" && u->getName() == name && u->getSurname() == surname) ||
+                (role == 3 && u->getRole() == "AdminStaff" && u->getName() == name && u->getSurname() == surname);
         });
 
         if (it != users.end()) {

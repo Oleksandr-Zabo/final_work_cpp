@@ -41,7 +41,7 @@ public:
                 throw runtime_error("Cannot open file for writing");
             }
             string encryptedData = encrypt(data);
-            outFile << encryptedData;
+            outFile << encryptedData << endl;
             outFile.close();
         }
         catch (const exception& e) {

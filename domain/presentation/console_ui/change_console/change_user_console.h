@@ -38,12 +38,12 @@ public:
 		string oldSurname;
 		cin >> oldSurname;
 
-		string oldRole;
+		int oldRole;
 		do
 		{
-			cout << "Enter the old role(Doctor, Nurse, Admin staff): ";
+			cout << "Enter the old role(Doctor -1, Nurse- 2, Admin staff- 3): ";
 			cin >> oldRole;
-		} while (oldRole != "Doctor" && oldRole != "Nurse" && oldRole != "Admin staff");
+		} while (oldRole < 1 || oldRole > 3);
 
         if (DeleteUserConsole::is_findUserNameSurname(oldName, oldSurname)) {
             delete_user_by_name_surname_role(oldName, oldSurname, oldRole);

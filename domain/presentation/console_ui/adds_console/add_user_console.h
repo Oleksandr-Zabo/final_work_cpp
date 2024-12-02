@@ -77,7 +77,8 @@ public:
 			}
 		}
 		Console_colors::default_color();
-
+		system("pause");
+		system("cls");
 	}
 };
 #endif // !ADD_USER_CONSOLE

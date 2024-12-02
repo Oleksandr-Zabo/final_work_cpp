@@ -15,12 +15,12 @@ public:
 
     // Method to display the admin staff's role
     void displayRole() const override {
-        cout << "Role: Admin Staff" << endl;
+        cout << "Role: AdminStaff" << endl;
     }
 
     // Method to get the admin_staff role
     string getRole() const override{
-        return "Admin staff";
+        return "AdminStaff";
     }
 
 	// Method to get the admin staff's name
