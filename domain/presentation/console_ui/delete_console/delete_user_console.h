@@ -35,6 +35,8 @@ public:
         } else {
 			Console_colors::errors_color();
             cout << "User not found." << endl;
+			system("pause");
+			system("cls");
         }
     }
 
@@ -83,6 +85,8 @@ public:
         } else {
 			Console_colors::errors_color();
             cout << "User not found." << endl;
+			system("pause");
+			system("cls");
         }
     }
 };

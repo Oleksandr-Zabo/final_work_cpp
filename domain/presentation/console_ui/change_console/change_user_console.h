@@ -41,7 +41,7 @@ public:
 		int oldRole;
 		do
 		{
-			cout << "Enter the old role(Doctor -1, Nurse- 2, Admin staff- 3): ";
+			cout << "Enter the old role(1- Doctor, 2- Nurse, 3- Admin staff): ";
 			cin >> oldRole;
 		} while (oldRole < 1 || oldRole > 3);
 
@@ -51,6 +51,13 @@ public:
             cout << "Enter new data:" << endl;
             AddUserConsole::addUser();
         }
+
+		else {
+			Console_colors::errors_color();
+			cout << "User not found." << endl;
+			system("pause");
+			system("cls");
+		}
     }
 };
 #endif // !CHANGE_USER_CONSOLE
