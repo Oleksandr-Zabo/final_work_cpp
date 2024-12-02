@@ -14,37 +14,38 @@
 
 class LoadRecord : public FileStorage {
 public:
-	vector<string> readAllRecords() {
-		vector<string> records;
-		ifstream file("records.txt");
-		if (file.is_open()) {
-			string line;
-			string record;
-			while (getline(file, line)) {
-				if (line == "###") {
-					if (!record.empty()) {
-						records.push_back(record);
-						record.clear();
-					}
-				}
-				else {
-					record += line + "\n";
-				}
-			}
-			if (!record.empty()) {
-				records.push_back(record);
-			}
-			file.close();
-		}
-		else {
-			Console_colors::errors_color();
-			cout << "Unable to open file" << endl;
-			Console_colors::default_color();
-			system("pause");
-			system("cls");
-		}
-		return records;
-	}
+    vector<string> readAllRecords() {
+        vector<string> records;
+        ifstream file("records.txt");
+        if (file.is_open()) {
+            string line;
+            string record;
+            while (getline(file, line)) {
+                line = decrypt(line); // Decrypt the line before processing
+                if (line == "###") {
+                    if (!record.empty()) {
+                        records.push_back(record);
+                        record.clear();
+                    }
+                }
+                else {
+                    record += line + "\n";
+                }
+            }
+            if (!record.empty()) {
+                records.push_back(record);
+            }
+            file.close();
+        }
+        else {
+            Console_colors::errors_color();
+            cout << "Unable to open file" << endl;
+            Console_colors::default_color();
+            system("pause");
+            system("cls");
+        }
+        return records;
+    }
 
 	string FindRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
 		vector<string> records = readAllRecords();

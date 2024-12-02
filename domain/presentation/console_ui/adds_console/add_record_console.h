@@ -39,16 +39,19 @@ public:
 		}
 		
 		Console_colors::inputs_color();
-		cout << "Enter the information about insurance: ";
+		cout << "Enter the information about insurance: " << endl;
 		string policy_number, address, insurance_company;
 		double amount_of_compensation;
 		Date date_of_start, date_of_end;
 		cout << "Enter the policy number: ";
-		cin >> policy_number;
+		cin.ignore();
+		getline(cin, policy_number);
+		cin.ignore();
 		cout << "Enter the address: ";
-		cin >> address;
+		getline(cin, address);
+		cin.ignore();
 		cout << "Enter the insurance company: ";
-		cin >> insurance_company;
+		getline(cin, insurance_company);
 		cout << "Enter the amount of compensation: ";
 		cin >> amount_of_compensation;
 		
@@ -81,16 +84,20 @@ public:
 		Console_colors::inputs_color();
 		string diagnos, analyses;
 		cout << "Enter the diagnos: ";
-		cin >> diagnos;
+		cin.ignore();
+		getline(cin, diagnos);
 		cout << "Enter the analyses: ";
-		cin >> analyses;
+		cin.ignore();
+		getline(cin, analyses);
 		DiagnosticRecord diagnostic_record(diagnos, analyses);
 
 		string treatment, medicine;
 		cout << "Enter the treatment: ";
-		cin >> treatment;
+		cin.ignore();
+		getline(cin, treatment);
 		cout << "Enter the medicine: ";
-		cin >> medicine;
+		cin.ignore();
+		getline(cin, medicine);
 		TreatmentRecord treatment_record(treatment, medicine);
 
 		string doctor_name, doctor_surname, nurse_name, nurse_surname;

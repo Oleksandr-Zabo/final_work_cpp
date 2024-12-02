@@ -29,7 +29,9 @@ private:
 
 public:
 
-	void saveRecord(const MedicalRecord& medical_record, const DiagnosticRecord& diagnos_record, const TreatmentRecord& treatment_record, const VisitRecord& visit_record) {
+	SaveRecord() : FileStorage("records.txt") {} // Initialize with a filename
+
+	void saveRecord(const MedicalRecord& medical_record, const DiagnosticRecord& diagnos_record, const TreatmentRecord& treatment_record, const VisitRecord& visit_record){
 		string data = convertRecordToString(medical_record, diagnos_record, treatment_record, visit_record);
 		saveData(data);
 	}
