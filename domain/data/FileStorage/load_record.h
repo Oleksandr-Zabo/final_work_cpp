@@ -45,6 +45,7 @@ public:
         return records;
     }
 
+
     string FindRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {
         vector<string> records = readAllRecords();
         for (const string& record : records) {
