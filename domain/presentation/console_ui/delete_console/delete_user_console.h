@@ -46,20 +46,36 @@ public:
 		cout << "Enter surname: ";
 		string surname;
 		cin >> surname;
-		string role;
+		int role;
 		do
 		{
-			cout << "Enter role(Doctor, Nurse, Admin staff): ";
-			cin >> role;
-		} while (role != "Doctor" && role != "Nurse" && role != "Admin staff");
+			cout << "Enter role(1- Doctor, 2- Nurse, 3- Admin staff): ";
+			try {
+				cin >> role;
+
+				if (cin.fail())
+				{
+					throw runtime_error("Invalid input. Please enter a number.");
+				}
+			}
+			catch (const exception& e)
+			{
+				cin.clear();
+				cin.ignore();
+				Console_colors::errors_color();
+				cout << e.what() << endl;
+				Console_colors::default_color();
+				continue;
+			}
+		} while (role < 1 || role > 3);
 		
         if (is_findUserNameSurname(name, surname)) {
-            if (role == "Admin") {
+            if (role == 0) {
 				Console_colors::errors_color();
 				cout << "Admin cannot be deleted." << endl;
 				return;
 			}
-            delete_user_by_name_surname_role(name, surname, role);
+			delete_user_by_name_surname_role(name, surname, role);
 			Console_colors::labels_color();
             cout << "User deleted successfully." << endl;
 			system("pause");
