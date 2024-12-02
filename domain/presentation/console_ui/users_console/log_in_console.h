@@ -19,13 +19,26 @@ private:
             Console_colors::errors_color();
             cout << "User not found" << endl;
             Console_colors::default_color();
-            return;
+            //exit from program
+            system("pause");
+            system("cls");
+            Console_colors::labels_color();
+            cout << "Exiting..." << endl;
+            Console_colors::default_color();
+            exit(0);
+            
         }
         if (user->getPassword() != password) {
             Console_colors::errors_color();
             cout << "Invalid password" << endl;
             Console_colors::default_color();
-            return;
+            //exit from program
+            system("pause");
+            system("cls");
+            Console_colors::labels_color();
+            cout << "Exiting..." << endl;
+            Console_colors::default_color();
+            exit(0);
         }
     }
     void showMenu() {
