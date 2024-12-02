@@ -49,7 +49,7 @@ private:
             adminConsole = new AdminConsole(user->getUsername(), user->getPassword());
             adminConsole->adminMenu();
         }
-        else if (role == "Admin staff") {
+        else if (role == "AdminStaff") {
             system("pause");
             system("cls");
             adminStaffConsole = new AdminStaffConsole(user->getUsername(), user->getPassword(), user->getName(), user->getSurname());
