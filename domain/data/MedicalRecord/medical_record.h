@@ -37,19 +37,26 @@ public:
 		return to_string(_day) + "/" + to_string(_month) + "/" + to_string(_year);
 	}
 
-	static Date fromString(const string& str) {
-		Date date;
-		stringstream ss(str);
-		string token;
-		vector<string> tokens;
-		while (getline(ss, token, '/')) {
-			tokens.push_back(token);
+    static Date fromString(const string& str) {
+        Date date;
+        stringstream ss(str);
+        string token;
+        vector<int> tokens;
+        while (getline(ss, token, '/')) {
+            tokens.push_back(stoi(token));
+        }
+        if (tokens.size() == 3) {
+            date.setDay(tokens[0]);
+            date.setMonth(tokens[1]);
+            date.setYear(tokens[2]);
+        }
+		else {
+			date.setDay(1);
+			date.setMonth(1);
+			date.setYear(2000);
 		}
-		date.setDay(stoi(tokens[0]));
-		date.setMonth(stoi(tokens[1]));
-		date.setYear(stoi(tokens[2]));
-		return date;
-	}
+        return date;
+    }
 
 	bool operator==(const Date& date) const {
 		return _day == date._day && _month == date._month && _year == date._year;

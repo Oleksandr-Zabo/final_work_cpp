@@ -24,12 +24,18 @@ public:
 		cin >> name;
 		cout << "Enter the surname of patient: ";
 		cin >> surname;
-		cout << "Enter the date of birth of patient(dd/mm/yyyy): ";
+		
 		try
 		{
-			string date;
-			cin >> date;
-			date_of_birth.fromString(date);
+			do
+			{
+				cout << "Enter the date of birth of patient(dd/mm/yyyy): ";
+				string date;
+				cin.ignore();
+				getline(cin, date);
+				date_of_birth.fromString(date);
+			} while (Date::fromString("0/0/0") > date_of_birth || Date::fromString("0/0/0") == date_of_birth);
+			
 		}
 		catch (const exception& ex)
 		{
@@ -59,13 +65,23 @@ public:
 		{
 			do
 			{
-				cout << "Enter the date of start(dd/mm/yyyy): ";
-				string date;
-				cin >> date;
-				date_of_start.fromString(date);
-				cout << "Enter the date of end(dd/mm/yyyy): ";
-				cin >> date;
-				date_of_end.fromString(date);
+				do
+				{
+					cout << "Enter the date of start(dd/mm/yyyy): ";
+					string date;
+					cin.ignore();
+					getline(cin, date);
+					date_of_start.fromString(date);
+				} while (Date::fromString("0/0/0") > date_of_start || Date::fromString("0/0/0") == date_of_start);
+
+				do
+				{
+					cout << "Enter the date of start(dd/mm/yyyy): ";
+					string date_1;
+					cin.ignore();
+					getline(cin, date_1);
+					date_of_end.fromString(date_1);
+				} while (Date::fromString("0/0/0") > date_of_end || Date::fromString("0/0/0") == date_of_end);
 
 			} while (date_of_start>date_of_end);
 			
@@ -86,28 +102,38 @@ public:
 		cout << "Enter the diagnos: ";
 		cin.ignore();
 		getline(cin, diagnos);
+		cin.clear();
 		cout << "Enter the analyses: ";
 		cin.ignore();
 		getline(cin, analyses);
+		cin.clear();
 		DiagnosticRecord diagnostic_record(diagnos, analyses);
 
 		string treatment, medicine;
 		cout << "Enter the treatment: ";
 		cin.ignore();
 		getline(cin, treatment);
+		cin.clear();
 		cout << "Enter the medicine: ";
 		cin.ignore();
 		getline(cin, medicine);
+		cin.clear();
 		TreatmentRecord treatment_record(treatment, medicine);
 
 		string doctor_name, doctor_surname, nurse_name, nurse_surname;
 		Date date_of_visit;
-		cout << "Enter the date of visit(dd/mm/yyyy): ";
+		
 		try
 		{
-			string date;
-			cin >> date;
-			date_of_visit.fromString(date);
+			do
+			{
+				cout << "Enter the date of visit(dd/mm/yyyy): ";
+				string date;
+				cin.ignore();
+				getline(cin, date);
+				date_of_visit.fromString(date);
+			} while (Date::fromString("0/0/0") > date_of_visit || Date::fromString("0/0/0") == date_of_visit);
+			
 		}
 		catch (const exception& ex)
 		{
@@ -154,9 +180,15 @@ public:
 		cout << "Enter the date of birth of patient(dd/mm/yyyy): ";
 		try
 		{
-			string date;
-			cin >> date;
-			date_of_birth.fromString(date);
+			do
+			{
+				cout << "Enter the date of birth of patient(dd/mm/yyyy): ";
+				string date;
+				cin.ignore();
+				getline(cin, date);
+				date_of_birth.fromString(date);
+			} while (Date::fromString("0/0/0") > date_of_birth || Date::fromString("0/0/0") == date_of_birth);
+
 		}
 		catch (const exception& ex)
 		{
@@ -171,12 +203,17 @@ public:
 		string doctor_name, doctor_surname, nurse_name, nurse_surname;
 		Date date_of_visit;
 		Console_colors::inputs_color();
-		cout << "Enter the date of visit(dd/mm/yyyy): ";
 		try
 		{
-			string date;
-			cin >> date;
-			date_of_visit.fromString(date);
+			do
+			{
+				cout << "Enter the date of visit(dd/mm/yyyy): ";
+				string date;
+				cin.ignore();
+				getline(cin, date);
+				date_of_visit.fromString(date);
+			} while (Date::fromString("0/0/0") > date_of_visit || Date::fromString("0/0/0") == date_of_visit);
+
 		}
 		catch (const exception& ex)
 		{
