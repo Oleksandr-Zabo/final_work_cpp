@@ -235,7 +235,7 @@ public:
 
 		VisitRecord visit_record(date_of_visit, doctor_name, doctor_surname, nurse_name, nurse_surname);
 
-		if (LoadRecord::is_FindRecord(name, surname, date_of_visit, "")) {
+		if (LoadRecord::is_FindRecordShort(name, surname, date_of_visit)) {
 			Console_colors::errors_color();
 			cout << "Record already exists." << endl;
 			Console_colors::default_color();

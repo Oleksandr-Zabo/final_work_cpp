@@ -89,6 +89,27 @@ public:
         return false;
     }
 
+    bool is_FindRecordShort(const string& name, const string& surname, Date date_of_visit) {
+        vector<string> records = readAllRecords();
+        for (const string& record : records) {
+            MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
+            DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
+            VisitRecord* visitRecord = createVisitRecordFromString(record);
+            if (medicalRecord && diagnosticRecord && visitRecord &&
+                medicalRecord->getName() == name && medicalRecord->getSurname() == surname && 
+                visitRecord->getDateOfVisit() == date_of_visit) {
+                delete medicalRecord;
+                delete diagnosticRecord;
+                delete visitRecord;
+                return true;
+            }
+            delete medicalRecord;
+            delete diagnosticRecord;
+            delete visitRecord;
+        }
+        return false;
+    }
+
     MedicalRecord* createMedicalRecordFromString(const string& recordInfo) {
         size_t start = recordInfo.find("***\n") + 4;
         size_t end = recordInfo.find("\n***", start);
