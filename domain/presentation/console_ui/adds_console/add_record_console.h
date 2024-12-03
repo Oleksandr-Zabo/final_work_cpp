@@ -16,6 +16,7 @@ public:
 	AddRecordConsole() = default;
 
 	void addRecord() {
+		Date test_date;
 		Console_colors::inputs_color();
 		string name, surname;
 		InsurancePolicy info_about_insurance;
@@ -34,7 +35,7 @@ public:
 				cin.ignore();
 				getline(cin, date);
 				date_of_birth.fromString(date);
-			} while (Date::fromString("0/0/0") > date_of_birth || Date::fromString("0/0/0") == date_of_birth);
+			} while (test_date > date_of_birth || test_date == date_of_birth);
 			
 		}
 		catch (const exception& ex)
@@ -72,7 +73,7 @@ public:
 					cin.ignore();
 					getline(cin, date);
 					date_of_start.fromString(date);
-				} while (Date::fromString("0/0/0") > date_of_start || Date::fromString("0/0/0") == date_of_start);
+				} while (test_date > date_of_start || test_date == date_of_start);
 
 				do
 				{
@@ -81,7 +82,7 @@ public:
 					cin.ignore();
 					getline(cin, date_1);
 					date_of_end.fromString(date_1);
-				} while (Date::fromString("0/0/0") > date_of_end || Date::fromString("0/0/0") == date_of_end);
+				} while (test_date > date_of_end || test_date == date_of_end);
 
 			} while (date_of_start>date_of_end);
 			
@@ -132,7 +133,7 @@ public:
 				cin.ignore();
 				getline(cin, date);
 				date_of_visit.fromString(date);
-			} while (Date::fromString("0/0/0") > date_of_visit || Date::fromString("0/0/0") == date_of_visit);
+			} while (test_date > date_of_visit || test_date == date_of_visit);
 			
 		}
 		catch (const exception& ex)
@@ -170,6 +171,7 @@ public:
 	}
 
 	void addShortRecord() {
+		Date test_date;
 		Console_colors::inputs_color();
 		string name, surname;
 		Date date_of_birth;
@@ -187,7 +189,7 @@ public:
 				cin.ignore();
 				getline(cin, date);
 				date_of_birth.fromString(date);
-			} while (Date::fromString("0/0/0") > date_of_birth || Date::fromString("0/0/0") == date_of_birth);
+			} while (test_date > date_of_birth || test_date == date_of_birth);
 
 		}
 		catch (const exception& ex)
@@ -212,7 +214,7 @@ public:
 				cin.ignore();
 				getline(cin, date);
 				date_of_visit.fromString(date);
-			} while (Date::fromString("0/0/0") > date_of_visit || Date::fromString("0/0/0") == date_of_visit);
+			} while (test_date > date_of_visit || test_date == date_of_visit);
 
 		}
 		catch (const exception& ex)

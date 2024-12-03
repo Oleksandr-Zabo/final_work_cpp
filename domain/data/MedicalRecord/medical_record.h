@@ -11,8 +11,8 @@ private:
     int _year;
 public:
 	Date(){
-		_day = 0;
-		_month = 0;
+		_day = 1;
+		_month = 1;
 		_year = 1000;
 	}
 	Date(int day, int month, int year) : _day(day), _month(month), _year(year) {
