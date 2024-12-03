@@ -13,7 +13,7 @@ public:
 	Date(){
 		_day = 0;
 		_month = 0;
-		_year = 0;
+		_year = 1000;
 	}
 	Date(int day, int month, int year) : _day(day), _month(month), _year(year) {
 		_day = day;
@@ -37,26 +37,27 @@ public:
 		return to_string(_day) + "/" + to_string(_month) + "/" + to_string(_year);
 	}
 
-    static Date fromString(const string& str) {
-        Date date;
-        stringstream ss(str);
-        string token;
-        vector<int> tokens;
-        while (getline(ss, token, '/')) {
-            tokens.push_back(stoi(token));
-        }
-        if (tokens.size() == 3) {
-            date.setDay(tokens[0]);
-            date.setMonth(tokens[1]);
-            date.setYear(tokens[2]);
-        }
+	static Date fromString(const string& str) {
+		
+		stringstream ss(str);
+		string token;
+		vector<int> tokens;
+		while (getline(ss, token, '/')) {
+			tokens.push_back(stoi(token));
+		}
+		Date date(tokens[0], tokens[1], tokens[2]);
+		if (tokens.size() == 3) {
+			if (date.getDay() < 1 || date.getDay() > 31 || date.getMonth() < 1 || date.getMonth() > 12 || date.getYear() < 1900 || date.getYear() > 2024) {
+				throw invalid_argument("Invalid date");
+			}
+		}
 		else {
 			date.setDay(1);
 			date.setMonth(1);
 			date.setYear(2000);
 		}
-        return date;
-    }
+		return date;
+	}
 
 	bool operator==(const Date& date) const {
 		return _day == date._day && _month == date._month && _year == date._year;
