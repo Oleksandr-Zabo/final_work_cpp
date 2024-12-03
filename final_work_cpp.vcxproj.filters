@@ -161,5 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Project-diag.cd" />
   </ItemGroup>
 </Project>
