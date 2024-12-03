@@ -80,6 +80,29 @@ public:
 		return false;
 	}
 
+	//static func to > operator
+	static bool is_greater(const Date& date1, const Date& date2) {
+		if (date1._year > date2._year) {
+			return true;
+		}
+		else if (date1._year == date2._year) {
+			if (date1._month > date2._month) {
+				return true;
+			}
+			else if (date1._month == date2._month) {
+				if (date1._day > date2._day) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	//static func to == operator
+	static bool is_equal(const Date& date1, const Date& date2) {
+		return date1._day == date2._day && date1._month == date2._month && date1._year == date2._year;
+	}
+
 };
 
 struct InsurancePolicy {

@@ -34,8 +34,8 @@ public:
 				string date;
 				cin.ignore();
 				getline(cin, date);
-				date_of_birth.fromString(date);
-			} while (test_date > date_of_birth || test_date == date_of_birth);
+				date_of_birth = date_of_birth.fromString(date);
+			} while (Date::is_greater(test_date, date_of_birth) || Date::is_equal(test_date, date_of_birth));
 			
 		}
 		catch (const exception& ex)
@@ -72,8 +72,8 @@ public:
 					string date;
 					cin.ignore();
 					getline(cin, date);
-					date_of_start.fromString(date);
-				} while (test_date > date_of_start || test_date == date_of_start);
+					date_of_start = date_of_start.fromString(date);
+				} while (Date::is_greater(test_date, date_of_start) || Date::is_equal(test_date, date_of_start));
 
 				do
 				{
@@ -81,8 +81,8 @@ public:
 					string date_1;
 					cin.ignore();
 					getline(cin, date_1);
-					date_of_end.fromString(date_1);
-				} while (test_date > date_of_end || test_date == date_of_end);
+					date_of_end = date_of_end.fromString(date_1);
+				} while (Date::is_greater(test_date, date_of_end) || Date::is_equal(test_date, date_of_end));
 
 			} while (date_of_start>date_of_end);
 			
@@ -132,8 +132,8 @@ public:
 				string date;
 				cin.ignore();
 				getline(cin, date);
-				date_of_visit.fromString(date);
-			} while (test_date > date_of_visit || test_date == date_of_visit);
+				date_of_visit = date_of_visit.fromString(date);
+			} while (Date::is_greater(test_date, date_of_visit) || Date::is_equal(test_date, date_of_visit));
 			
 		}
 		catch (const exception& ex)
@@ -188,8 +188,8 @@ public:
 				string date;
 				cin.ignore();
 				getline(cin, date);
-				date_of_birth.fromString(date);
-			} while (test_date > date_of_birth || test_date == date_of_birth);
+				date_of_birth = date_of_birth.fromString(date);
+			} while (Date::is_greater(test_date, date_of_birth) || Date::is_equal(test_date, date_of_birth));
 
 		}
 		catch (const exception& ex)
@@ -213,8 +213,8 @@ public:
 				string date;
 				cin.ignore();
 				getline(cin, date);
-				date_of_visit.fromString(date);
-			} while (test_date > date_of_visit || test_date == date_of_visit);
+				date_of_visit = date_of_visit.fromString(date);
+			} while (Date::is_greater(test_date, date_of_visit) || Date::is_equal(test_date, date_of_visit));
 
 		}
 		catch (const exception& ex)
