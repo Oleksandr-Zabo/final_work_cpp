@@ -40,6 +40,7 @@ public:
     }
 
     void showRecordsByDoctor(const string& doctorName, const string& doctorSurname) {
+        system("cls");
         vector<string> records = LoadRecord::readAllRecords();
         int i = 1;
         for (const string& record : records) {
@@ -58,6 +59,11 @@ public:
                 visitRecord->displayRecord();
 
                 i++;
+            }
+            else {
+				Console_colors::errors_color();
+				cout << "Record for you not found" << endl;
+				Console_colors::default_color();
             }
         }
         Console_colors::default_color();

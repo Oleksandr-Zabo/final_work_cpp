@@ -19,7 +19,7 @@ public:
             string line;
             string record;
             while (getline(file, line)) {
-                line = decrypt(line); // Decrypt the line before processing
+				line = decrypt(line); // Decrypt the line
                 if (line == "###") {
                     if (!record.empty()) {
                         records.push_back(record);
@@ -112,9 +112,15 @@ public:
 
     MedicalRecord* createMedicalRecordFromString(const string& recordInfo) {
         size_t start = recordInfo.find("***\n") + 4;
-        size_t end = recordInfo.find("\n***", start);
-        if (start == string::npos || end == string::npos) {
-            return nullptr; // or handle the error as needed
+        if (start == string::npos) {
+            Console_colors::errors_color();
+            cout << "Unable to read record information" << endl;
+            Console_colors::default_color();
+            return nullptr;
+        }
+		size_t end = recordInfo.find("***\n", start);//***/n- what find, start - where to start
+        if (end == string::npos) {
+            end = recordInfo.length(); // Fix: set end to the length of the string if delimiter is not found
         }
         string medicalRecordStr = recordInfo.substr(start, end - start);
         MedicalRecord* medicalRecord = new MedicalRecord();
@@ -124,7 +130,16 @@ public:
 
     DiagnosticRecord* createDiagnosticRecordFromString(const string& recordInfo) {
         size_t start = recordInfo.find("***\n", recordInfo.find("***\n") + 4) + 4;
-        size_t end = recordInfo.find("\n***", start);
+        if (start == string::npos) {
+            Console_colors::errors_color();
+            cout << "Unable to read record information" << endl;
+            Console_colors::default_color();
+            return nullptr;
+        }
+        size_t end = recordInfo.find("***\n", start);//***/n- what find, start - where to start
+        if (end == string::npos) {
+            end = recordInfo.length(); // Fix: set end to the length of the string if delimiter is not found
+        }
         if (start == string::npos || end == string::npos) {
             return nullptr; // or handle the error as needed
         }
@@ -136,7 +151,16 @@ public:
 
     TreatmentRecord* createTreatmentRecordFromString(const string& recordInfo) {
         size_t start = recordInfo.find("***\n", recordInfo.find("***\n", recordInfo.find("***\n") + 4) + 4) + 4;
-        size_t end = recordInfo.find("\n***", start);
+        if (start == string::npos) {
+            Console_colors::errors_color();
+            cout << "Unable to read record information" << endl;
+            Console_colors::default_color();
+            return nullptr;
+        }
+        size_t end = recordInfo.find("***\n", start);//***/n- what find, start - where to start
+        if (end == string::npos) {
+            end = recordInfo.length(); // Fix: set end to the length of the string if delimiter is not found
+        }
         if (start == string::npos || end == string::npos) {
             return nullptr; // or handle the error as needed
         }
@@ -148,15 +172,22 @@ public:
 
     VisitRecord* createVisitRecordFromString(const string& recordInfo) {
         size_t start = recordInfo.find("***\n", recordInfo.find("***\n", recordInfo.find("***\n", recordInfo.find("***\n") + 4) + 4) + 4) + 4;
-        size_t end = recordInfo.find("\n***", start);
-        if (start == string::npos || end == string::npos) {
-            return nullptr; // or handle the error as needed
+        if (start == string::npos) {
+            Console_colors::errors_color();
+            cout << "Unable to read record information" << endl;
+            Console_colors::default_color();
+            return nullptr;
+        }
+        size_t end = recordInfo.find("***\n", start);
+        if (end == string::npos) {
+            end = recordInfo.length(); // Fix: set end to the length of the string if delimiter is not found
         }
         string visitRecordStr = recordInfo.substr(start, end - start);
         VisitRecord* visitRecord = new VisitRecord();
         visitRecord->Visit_Record_from_string(visitRecordStr);
         return visitRecord;
     }
+
 };
 
 #endif // !LOAD_RECORD

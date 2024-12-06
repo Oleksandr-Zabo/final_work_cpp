@@ -25,8 +25,13 @@ public:
 			cout << "Enter new data:" << endl;
             AddUserConsole::addUser();
         }
-    }
-
+		else {
+			Console_colors::errors_color();
+			cout << "User not found." << endl;
+			system("pause");
+			system("cls");
+		}
+	}
 
 
     void changeUserByNameSurnameRole() {

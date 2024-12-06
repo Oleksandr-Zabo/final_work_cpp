@@ -9,8 +9,9 @@ private:
     string filename;  // Stores the name of the file
 
 public:
-	// Default constructor
+	// Constructors
 	FileStorage() : filename("data.txt") {}  // Default constructor
+	FileStorage(const string& fname) : filename(fname) {}  // Constructor with a filename
 
     // Method to encrypt data using Caesar cipher with a shift of 3
     string encrypt(const string& data) const {
@@ -29,9 +30,6 @@ public:
         }
         return decrypted;
     }
-
-    // Constructor
-    FileStorage(const string& fname) : filename(fname) {}
 
     // Method to save data to a file with encryption
     void saveData(const string& data) override {

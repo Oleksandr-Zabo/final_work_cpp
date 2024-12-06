@@ -9,11 +9,14 @@
 #include "../../../data/FileStorage/save_record.h"
 #include "../../../data/FileStorage/load_record.h"
 #include "../../../data/FileStorage/delete_record.h"
+#include "../show_console/show_records_console.h"
 #include "../console_colors.h"
 
 class DeleteRecordConsole : public SaveRecord, public LoadRecord, public DeleteRecord {
 public:
     void deleteRecordConsole() {
+		ShowRecordsConsole showRecordsConsole;
+		showRecordsConsole.showAllRecords();
         Console_colors::inputs_color();
         string name, surname, diagnos;
         Date date_of_visit;

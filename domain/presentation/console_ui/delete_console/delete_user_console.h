@@ -6,6 +6,7 @@
 #include "../../../data/Users/doctor.h"
 #include "../../../data/Users/nurse.h"
 #include "../../../data/FileStorage/delete_user.h"
+#include "../show_console/show_all_users_console.h"
 #include "../console_colors.h"
 
 class DeleteUserConsole : public DeleteUser {
@@ -13,6 +14,8 @@ public:
 	DeleteUserConsole() = default;
 
     void deleteUserByUsernamePassword() {
+		ShowAllUsersConsole showAllUsersConsole;
+		showAllUsersConsole.showAllUsers();
 		Console_colors::inputs_color();
 		cout << "Enter username: ";
 		string username;
@@ -41,6 +44,8 @@ public:
     }
 
     void deleteUserByNameSurnameRole() {
+		ShowAllUsersConsole showAllUsersConsole;
+		showAllUsersConsole.showAllUsers();
 		Console_colors::inputs_color();
 		cout << "Enter name: ";
 		string name;

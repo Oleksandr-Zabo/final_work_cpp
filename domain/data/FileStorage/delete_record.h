@@ -27,9 +27,9 @@ public:
             for (const string& record : updatedRecords) {
                 updatedData += record + "\n";
             }
-            SaveRecord::saveData(updatedData);// saveData(updatedData);- has SaveRecord and LoadRecord
+            SaveRecord saveRecordInstance = SaveRecord("records.txt");
+            saveRecordInstance.saveData(updatedData);
         }
     }
 };
 #endif // !DELETE_RECORD
-

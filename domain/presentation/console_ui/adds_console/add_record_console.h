@@ -51,13 +51,13 @@ public:
 		double amount_of_compensation;
 		Date date_of_start, date_of_end;
 		cout << "Enter the policy number: ";
-		cin.ignore();
+		cin.clear();
 		getline(cin, policy_number);
-		cin.ignore();
 		cout << "Enter the address: ";
+		cin.clear();
 		getline(cin, address);
-		cin.ignore();
 		cout << "Enter the insurance company: ";
+		cin.clear();
 		getline(cin, insurance_company);
 		cout << "Enter the amount of compensation: ";
 		cin >> amount_of_compensation;
@@ -77,7 +77,7 @@ public:
 
 				do
 				{
-					cout << "Enter the date of start(dd/mm/yyyy): ";
+					cout << "Enter the date of end(dd/mm/yyyy): ";
 					string date_1;
 					cin.ignore();
 					getline(cin, date_1);
@@ -101,24 +101,20 @@ public:
 		Console_colors::inputs_color();
 		string diagnos, analyses;
 		cout << "Enter the diagnos: ";
-		cin.ignore();
+		cin.clear();
 		getline(cin, diagnos);
-		cin.clear();
 		cout << "Enter the analyses: ";
-		cin.ignore();
-		getline(cin, analyses);
 		cin.clear();
+		getline(cin, analyses);
 		DiagnosticRecord diagnostic_record(diagnos, analyses);
 
 		string treatment, medicine;
 		cout << "Enter the treatment: ";
-		cin.ignore();
+		cin.clear();
 		getline(cin, treatment);
-		cin.clear();
 		cout << "Enter the medicine: ";
-		cin.ignore();
-		getline(cin, medicine);
 		cin.clear();
+		getline(cin, medicine);
 		TreatmentRecord treatment_record(treatment, medicine);
 
 		string doctor_name, doctor_surname, nurse_name, nurse_surname;
@@ -162,7 +158,7 @@ public:
 			system("cls");
 			return;
 		}
-		SaveRecord::saveRecord(medical_record, diagnostic_record, treatment_record, visit_record);
+		SaveRecord::saveRecordFunction(medical_record, diagnostic_record, treatment_record, visit_record);
 
 		Console_colors::labels_color();
 		cout << "Record added successfully." << endl;
@@ -243,7 +239,7 @@ public:
 			system("cls");
 			return;
 		}
-		SaveRecord::saveRecord(medical_record, DiagnosticRecord(), TreatmentRecord(), visit_record);
+		SaveRecord::saveRecordFunction(medical_record, DiagnosticRecord(), TreatmentRecord(), visit_record);
 		Console_colors::labels_color();
 		cout << "Short record added successfully." << endl;
 		system("pause");

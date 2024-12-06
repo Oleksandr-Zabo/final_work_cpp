@@ -41,8 +41,8 @@ public:
 
 	string Visit_Record_to_string() const {
 		return "Visit Record - Date: " + _date_of_visit.toString() + "\n" +
-			"Doctor: " + _name_of_doctor + " " + _surname_of_doctor + "\n" +
-			"Nurse: " + _name_of_nurse + " " + _surname_of_nurse;
+			"Doctor name: " + _name_of_doctor + "\n" + "Doctor surname: " + _surname_of_doctor + "\n" +
+			"Nurse name: " + _name_of_nurse + "\n" + "Nurse surname: " + _surname_of_nurse;
 	}
 
 	void Visit_Record_from_string(const string& str) {
@@ -51,7 +51,7 @@ public:
 		getline(iss, line);
 		_date_of_visit = Date::fromString(line.substr(line.find(": ") + 2));
 		getline(iss, line);
-		_name_of_doctor = line.substr(line.find(": ") + 2);
+		_name_of_doctor = line.substr(line.find(": ") + 2);//for doctor name
 		getline(iss, line);
 		_surname_of_doctor = line.substr(line.find(": ") + 2);
 		getline(iss, line);

@@ -19,9 +19,6 @@
     <Filter Include="domain\data\FileStorage">
       <UniqueIdentifier>{23ed670f-a522-4964-a2b3-fe2cfb05daf8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="domain\data\MedicalRecord">
-      <UniqueIdentifier>{a98d7b4e-371d-454e-9c20-b6cc546c7e4b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="domain\data\Users">
       <UniqueIdentifier>{b4a53197-fa4f-4afb-87ef-3ad12522f76b}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,9 @@
     </Filter>
     <Filter Include="domain\presentation\console_ui\user">
       <UniqueIdentifier>{e3a71715-9d72-44e4-959b-0fed9ba0c317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="domain\data\Records">
+      <UniqueIdentifier>{a98d7b4e-371d-454e-9c20-b6cc546c7e4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,16 +64,16 @@
       <Filter>domain\data\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="domain\data\MedicalRecord\diagnostic_record.h">
-      <Filter>domain\data\MedicalRecord</Filter>
+      <Filter>domain\data\Records</Filter>
     </ClInclude>
     <ClInclude Include="domain\data\MedicalRecord\medical_record.h">
-      <Filter>domain\data\MedicalRecord</Filter>
+      <Filter>domain\data\Records</Filter>
     </ClInclude>
     <ClInclude Include="domain\data\MedicalRecord\treatment_record.h">
-      <Filter>domain\data\MedicalRecord</Filter>
+      <Filter>domain\data\Records</Filter>
     </ClInclude>
     <ClInclude Include="domain\data\MedicalRecord\visit_record.h">
-      <Filter>domain\data\MedicalRecord</Filter>
+      <Filter>domain\data\Records</Filter>
     </ClInclude>
     <ClInclude Include="domain\data\Users\admin.h">
       <Filter>domain\data\Users</Filter>

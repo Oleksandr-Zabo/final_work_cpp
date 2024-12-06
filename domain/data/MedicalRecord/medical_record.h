@@ -210,7 +210,7 @@ public:
 	}
 
     void displayRecord() const override {
-        cout << "Name of patienn: " << _name_of_patient << endl;
+        cout << "Name of patient: " << _name_of_patient << endl;
 		cout << "Surname of patient: " << _surname_of_patient << endl;
 		cout << "Date of birth: " << _date_of_birth.toString() << endl;
 		cout << "Insurance policy: " << _policy.toString() << endl;
@@ -220,7 +220,7 @@ public:
 		return "Name of patient: " + _name_of_patient + "\n" +
 			"Surname of patient: " + _surname_of_patient + "\n" +
 			"Date of birth: " + _date_of_birth.toString() + "\n" +
-			"Insurance policy: " + _policy.toString();
+			"Insurance policy: \n" + _policy.toString();
 	}
 
 	void Medical_Record_from_string(const string& str) {
@@ -232,6 +232,7 @@ public:
 		_surname_of_patient = line.substr(line.find(": ") + 2);
 		getline(iss, line);
 		_date_of_birth = Date::fromString(line.substr(line.find(": ") + 2));
+		getline(iss, line);
 		getline(iss, line);
 		_policy.fromString(line.substr(line.find(": ") + 2));
 	}
