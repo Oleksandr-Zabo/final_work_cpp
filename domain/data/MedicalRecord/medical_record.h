@@ -136,6 +136,17 @@ struct InsurancePolicy {
         endDate = endDt;
     }
 
+	// Copy constructor
+	InsurancePolicy(const InsurancePolicy& policy) {
+		policyNumber = policy.policyNumber;
+		holderName = policy.holderName;
+		holderAddress = policy.holderAddress;
+		insuranceCompany = policy.insuranceCompany;
+		coverageAmount = policy.coverageAmount;
+		startDate = policy.startDate;
+		endDate = policy.endDate;
+	}
+
     string toString() const {
         return "Policy Number: " + policyNumber + "\n" +
             "Holder Name: " + holderName + "\n" +
@@ -233,8 +244,31 @@ public:
 		getline(iss, line);
 		_date_of_birth = Date::fromString(line.substr(line.find(": ") + 2));
 		getline(iss, line);
+
+		InsurancePolicy policy1 = InsurancePolicy();
+
 		getline(iss, line);
-		_policy.fromString(line.substr(line.find(": ") + 2));
+		policy1.policyNumber = line.substr(line.find(": ") + 2);
+
+		getline(iss, line);
+		policy1.holderName = line.substr(line.find(": ") + 2);
+
+		getline(iss, line);
+		policy1.holderAddress = line.substr(line.find(": ") + 2);
+
+		getline(iss, line);
+		policy1.insuranceCompany = line.substr(line.find(": ") + 2);
+
+		getline(iss, line);
+		policy1.coverageAmount = stod(line.substr(line.find(": ") + 2));
+
+		getline(iss, line);
+		policy1.startDate = Date::fromString(line.substr(line.find(": ") + 2));
+
+		getline(iss, line);
+		policy1.endDate = Date::fromString(line.substr(line.find(": ") + 2));
+
+		_policy = policy1;
 	}
 
 	string getName() const {

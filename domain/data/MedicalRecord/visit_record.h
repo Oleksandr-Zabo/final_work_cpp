@@ -36,7 +36,7 @@ public:
 	}
 
 	void displayRecord() const override {
-		cout << "Visit Record - Date: " << _date_of_visit.toString() << ", Doctor: " << _name_of_doctor << " " << _surname_of_doctor << ", Nurse: " << _name_of_nurse << " " << _surname_of_nurse << endl;
+		cout << "Visit Record - Date: " << _date_of_visit.toString() << "\nDoctor: " << _name_of_doctor << " " << _surname_of_doctor << "\nNurse: " << _name_of_nurse << " " << _surname_of_nurse << endl;
 	}
 
 	string Visit_Record_to_string() const {
