@@ -23,7 +23,7 @@ private:
         ss << "***\n";
         ss << treatment_record.Treatment_Record_to_string() << "\n";
         ss << "***\n";
-        ss << visit_record.Visit_Record_to_string() << "\n";
+        ss << visit_record.Visit_Record_to_string();
         return ss.str();
     }
 
