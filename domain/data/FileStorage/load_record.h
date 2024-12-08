@@ -17,21 +17,20 @@ public:
         ifstream file("records.txt");
         if (file.is_open()) {
             string line;
-            string record;
-            while (getline(file, line)) {
-				line = decrypt(line); // Decrypt the line
-                if (line == "###") {
+            if (getline(file, line)) {
+                line = decrypt(line); // Decrypt the line
+                size_t pos = 0;
+                string delimiter = "###";
+                while ((pos = line.find(delimiter)) != string::npos) {
+                    string record = line.substr(0, pos);
                     if (!record.empty()) {
                         records.push_back(record);
-                        record.clear();
                     }
+                    line.erase(0, pos + delimiter.length());
                 }
-                else {
-                    record += line + "\n";
+                if (!line.empty()) {
+                    records.push_back(line);
                 }
-            }
-            if (!record.empty()) {
-                records.push_back(record);
             }
             file.close();
         }
@@ -44,6 +43,8 @@ public:
         }
         return records;
     }
+
+
 
 
     string FindRecord(const string& name, const string& surname, Date date_of_visit, const string& diagnos) {

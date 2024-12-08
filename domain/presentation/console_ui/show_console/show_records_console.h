@@ -73,7 +73,7 @@ public:
 
     void showRecordsByNurse(const string& nurseName, const string& nurseSurname) {
         vector<string> records = LoadRecord::readAllRecords();
-        int i = 0;
+        int i = 1;
         for (const string& record : records) {
             VisitRecord* visitRecord = createVisitRecordFromString(record);
             if (visitRecord->getNurseName() == nurseName && visitRecord->getNurseSurname() == nurseSurname) {
@@ -99,7 +99,7 @@ public:
 
     void showShortRecordsForAdminStaff() {
         vector<string> records = LoadRecord::readAllRecords();
-        int i = 0;
+        int i = 1;
         for (const string& record : records) {
             MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
