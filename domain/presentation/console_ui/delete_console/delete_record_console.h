@@ -15,8 +15,8 @@
 class DeleteRecordConsole : public SaveRecord, public LoadRecord, public DeleteRecord {
 public:
     void deleteRecordConsole() {
-		ShowRecordsConsole showRecordsConsole;
-		showRecordsConsole.showAllRecords();
+        ShowRecordsConsole showRecordsConsole;
+        showRecordsConsole.showAllRecords();
         Console_colors::inputs_color();
         string name, surname, diagnos;
         Date date_of_visit;
@@ -39,17 +39,7 @@ public:
         cout << "Enter the diagnos: ";
         cin >> diagnos;
 
-        vector<string> records = LoadRecord::readAllRecords();
-        vector<string> updatedRecords;
-        bool recordFound = false;
-        for (const string& record : records) {
-            if (!LoadRecord::is_FindRecord(name, surname, date_of_visit, diagnos)) {
-                updatedRecords.push_back(record);
-            } else {
-                recordFound = true;
-            }
-        }
-        if (!recordFound) {
+        if (!LoadRecord::is_FindRecord(name, surname, date_of_visit, diagnos)) {
             Console_colors::errors_color();
             cout << "Record not found." << endl;
             Console_colors::default_color();
@@ -57,11 +47,9 @@ public:
             system("cls");
             return;
         }
-        string updatedData;
-        for (const string& record : updatedRecords) {
-            updatedData += record + "\n";
-        }
-        LoadRecord::saveData(updatedData);
+
+        DeleteRecord::deleteRecord(name, surname, date_of_visit, diagnos);
+
         Console_colors::labels_color();
         cout << "Record deleted successfully." << endl;
         system("pause");

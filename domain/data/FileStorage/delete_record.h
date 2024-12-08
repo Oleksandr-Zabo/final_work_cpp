@@ -28,7 +28,7 @@ public:
                 updatedData += record + "\n";
             }
             SaveRecord saveRecordInstance = SaveRecord("records.txt");
-            saveRecordInstance.saveData(updatedData);
+            saveRecordInstance.saveDataClear(updatedData);
         }
     }
 };

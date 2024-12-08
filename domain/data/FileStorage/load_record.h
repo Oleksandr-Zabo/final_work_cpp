@@ -34,6 +34,49 @@ public:
             }
             file.close();
         }
+		if(records.empty()) {
+			records = readAllRecordsReserve();
+            if (records.empty()) {
+                Console_colors::errors_color();
+                cout << "No records found" << endl;
+                Console_colors::default_color();
+                system("pause");
+                system("cls");
+            }
+		}
+        else {
+            Console_colors::errors_color();
+            cout << "Unable to open file" << endl;
+            Console_colors::default_color();
+            system("pause");
+            system("cls");
+        }
+        return records;
+    }
+
+    vector<string> readAllRecordsReserve() {
+        vector<string> records;
+        ifstream file("records.txt");
+        if (file.is_open()) {
+            string line;
+            string record;
+            while (getline(file, line)) {
+                line = decrypt(line); // Decrypt the line
+                if (line == "###" || line == "###\n") {
+                    if (!record.empty()) {
+                        records.push_back(record);
+                        record.clear();
+                    }
+                }
+                else {
+                    record += line + "\n";
+                }
+            }
+            if (!record.empty()) {
+                records.push_back(record);
+            }
+            file.close();
+        }
         else {
             Console_colors::errors_color();
             cout << "Unable to open file" << endl;

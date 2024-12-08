@@ -47,6 +47,22 @@ public:
         }
     }
 
+    // Method to rewrite data to a file with encryption
+    void saveDataClear(const string& data) override{
+        try {
+            ofstream outFile(filename, ios::out);  // Open file in write mode
+            if (!outFile.is_open()) {
+                throw runtime_error("Cannot open file for writing");
+            }
+            string encryptedData = encrypt(data);
+            outFile << encryptedData << endl;
+            outFile.close();
+        }
+        catch (const exception& e) {
+            cerr << "Error: " << e.what() << endl;
+        }
+    }
+
     // Method to load data from a file with decryption
     string loadData() override {
         try {
