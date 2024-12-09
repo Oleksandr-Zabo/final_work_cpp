@@ -16,6 +16,14 @@ public:
         vector<string> records;
         ifstream file("records.txt");
         if (file.is_open()) {
+            if (file.peek() == ifstream::traits_type::eof()) {
+                Console_colors::errors_color();
+                cout << "File is empty" << endl;
+                Console_colors::default_color();
+                system("pause");
+                system("cls");
+                return records;
+            }
             string line;
             if (getline(file, line)) {
                 line = decrypt(line); // Decrypt the line
@@ -33,9 +41,15 @@ public:
                 }
             }
             file.close();
+        } else {
+            Console_colors::errors_color();
+            cout << "Unable to open file" << endl;
+            Console_colors::default_color();
+            system("pause");
+            system("cls");
         }
-		if(records.empty()) {
-			records = readAllRecordsReserve();
+        if (records.empty()) {
+            records = readAllRecordsReserve();
             if (records.empty()) {
                 Console_colors::errors_color();
                 cout << "No records found" << endl;
@@ -43,13 +57,6 @@ public:
                 system("pause");
                 system("cls");
             }
-		}
-        else {
-            Console_colors::errors_color();
-            cout << "Unable to open file" << endl;
-            Console_colors::default_color();
-            system("pause");
-            system("cls");
         }
         return records;
     }
@@ -58,6 +65,14 @@ public:
         vector<string> records;
         ifstream file("records.txt");
         if (file.is_open()) {
+            if (file.peek() == ifstream::traits_type::eof()) {
+                Console_colors::errors_color();
+                cout << "File is empty" << endl;
+                Console_colors::default_color();
+                system("pause");
+                system("cls");
+                return records;
+            }
             string line;
             string record;
             while (getline(file, line)) {
