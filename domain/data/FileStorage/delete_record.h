@@ -15,20 +15,18 @@ public:
         bool recordFound = false;
 
         for (const string& record : records) {
-            if (!(is_FindRecord(name, surname, date_of_visit, diagnos))) {
-                updatedRecords.push_back(record);
-            } 
-            else {
+            if (is_FindRecord(name, surname, date_of_visit, diagnos)) {
                 recordFound = true;
+				records.erase(remove(records.begin(), records.end(), record), records.end());
             }
         }
 
         if (recordFound) {
             string updatedData;
-            for (const string& record : updatedRecords) {
+            for (const string& record : records) {
                 updatedData += record + "\n";
             }
-            SaveRecord saveRecordInstance = SaveRecord("records.txt");
+            SaveRecord saveRecordInstance("records.txt");
             saveRecordInstance.saveDataClear(updatedData);
         }
     }

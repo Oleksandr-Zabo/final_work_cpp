@@ -16,10 +16,11 @@ public:
         vector<string> records;
         ifstream file("records.txt");
         if (file.is_open()) {
-            if (file.peek() == ifstream::traits_type::eof()) {
+			if (file.tellg() == 0) {//if file is empty (.telg()- get the current position in the file)
                 Console_colors::errors_color();
                 cout << "File is empty" << endl;
                 Console_colors::default_color();
+                file.close(); // Close the file before returning
                 system("pause");
                 system("cls");
                 return records;
@@ -65,7 +66,7 @@ public:
         vector<string> records;
         ifstream file("records.txt");
         if (file.is_open()) {
-            if (file.peek() == ifstream::traits_type::eof()) {
+            if (file.tellg() == 0) {
                 Console_colors::errors_color();
                 cout << "File is empty" << endl;
                 Console_colors::default_color();
@@ -141,6 +142,10 @@ public:
                     delete visitRecord;
                     return true;
                 }
+				//if record is not found
+                delete medicalRecord;
+                delete diagnosticRecord;
+                delete visitRecord;
                 
             }
         }
