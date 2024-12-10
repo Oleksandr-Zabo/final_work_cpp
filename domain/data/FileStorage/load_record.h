@@ -133,17 +133,16 @@ public:
             MedicalRecord* medicalRecord = createMedicalRecordFromString(record);
             DiagnosticRecord* diagnosticRecord = createDiagnosticRecordFromString(record);
             VisitRecord* visitRecord = createVisitRecordFromString(record);
-            if (medicalRecord && diagnosticRecord && visitRecord &&
-                medicalRecord->getName() == name && medicalRecord->getSurname() == surname &&
-                diagnosticRecord->getDiagnosis() == diagnos && visitRecord->getDateOfVisit() == date_of_visit) {
-                delete medicalRecord;
-                delete diagnosticRecord;
-                delete visitRecord;
-                return true;
+            if (medicalRecord != nullptr && diagnosticRecord != nullptr && visitRecord != nullptr) {
+                if (medicalRecord->getName() == name && medicalRecord->getSurname() == surname &&
+                    diagnosticRecord->getDiagnosis() == diagnos && visitRecord->getDateOfVisit() == date_of_visit) {
+                    delete medicalRecord;
+                    delete diagnosticRecord;
+                    delete visitRecord;
+                    return true;
+                }
+                
             }
-            delete medicalRecord;
-            delete diagnosticRecord;
-            delete visitRecord;
         }
         return false;
     }

@@ -15,9 +15,10 @@ public:
         bool recordFound = false;
 
         for (const string& record : records) {
-            if (!is_FindRecord(name, surname, date_of_visit, diagnos)) {
+            if (!(is_FindRecord(name, surname, date_of_visit, diagnos))) {
                 updatedRecords.push_back(record);
-            } else {
+            } 
+            else {
                 recordFound = true;
             }
         }
