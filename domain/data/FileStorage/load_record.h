@@ -16,6 +16,8 @@ public:
         vector<string> records;
         ifstream file("records.txt");
         if (file.is_open()) {
+
+			file.seekg(0, ios::end); // Set the pointer to the end of the file
 			if (file.tellg() == 0) {//if file is empty (.telg()- get the current position in the file)
                 Console_colors::errors_color();
                 cout << "File is empty" << endl;
@@ -25,6 +27,8 @@ public:
                 system("cls");
                 return records;
             }
+			file.seekg(0, ios::beg); // Set the pointer to the beginning of the file
+
             string line;
             if (getline(file, line)) {
                 line = decrypt(line); // Decrypt the line
@@ -66,6 +70,8 @@ public:
         vector<string> records;
         ifstream file("records.txt");
         if (file.is_open()) {
+
+            file.seekg(0, ios::end);
             if (file.tellg() == 0) {
                 Console_colors::errors_color();
                 cout << "File is empty" << endl;
@@ -74,6 +80,8 @@ public:
                 system("cls");
                 return records;
             }
+            file.seekg(0, ios::beg);
+
             string line;
             string record;
             while (getline(file, line)) {
@@ -151,6 +159,16 @@ public:
         }
         return false;
     }
+
+	bool isFindRecordByRecord(const string& record) {
+		vector<string> records = readAllRecords();
+		for (const string& rec : records) {
+			if (rec == record) {
+				return true;
+			}
+		}
+		return false;
+	}
 
     bool is_FindRecordShort(const string& name, const string& surname, Date date_of_visit) {
         vector<string> records = readAllRecords();
