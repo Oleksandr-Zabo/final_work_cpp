@@ -3,7 +3,7 @@
   <Class Name="IDataStorage">
     <Position X="22.75" Y="14.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAABAAAAAAAAAAABAAAAAAAAAAIAAAAgAAAAAAAAA=</HashCode>
       <FileName>domain\data\Interfaces\IDataStorage.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,14 +38,14 @@
   <Class Name="FileStorage">
     <Position X="22.75" Y="16.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABFAAAAAAAAAABAAEAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAABFAAAAAAAAAABAAEAAAAAAAIAAAAAQAAAAAAAA=</HashCode>
       <FileName>domain\data\FileStorage\file_storage.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LoadRecord">
     <Position X="9.75" Y="20.25" Width="6.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgAACABCAAAAAAAAAAAIAAAAAAAAAgAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAgACCCBCAAAAAAAAAAAIABAAAAAAAgAAAg=</HashCode>
       <FileName>domain\data\FileStorage\load_record.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,7 +59,7 @@
   <Class Name="SaveRecord">
     <Position X="27" Y="20.25" Width="11.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAIAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAECAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\data\FileStorage\save_record.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -75,13 +75,6 @@
     <TypeIdentifier>
       <HashCode>AAABAAABAAAABAAAASAAAAAAAAAAAAAAAAAAAAQBAAA=</HashCode>
       <FileName>domain\data\MedicalRecord\diagnostic_record.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MedicalRecord">
-    <Position X="35.25" Y="2.5" Width="6.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAQQAACAUAAABAAAAAAAAEAEQAAAA=</HashCode>
-      <FileName>domain\data\MedicalRecord\medical_record.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreatmentRecord">
@@ -238,15 +231,28 @@
       <FileName>domain\presentation\console_ui\users_console\nurse_console.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MedicalRecord">
+    <Position X="35.25" Y="2.5" Width="6.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAQQAACAUAAABAAAAAAAAEAEQAAAA=</HashCode>
+      <FileName>domain\data\MedicalRecord\medical_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="Date" Collapsed="true">
     <Position X="49" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAQAAABAAEERQMAAIAAAgABAAAgAAQAQAA=</HashCode>
+      <HashCode>CAAAAAAAIAAQAAABAAEERQMAAIAAAgABAAAgAAQAQAA=</HashCode>
       <FileName>domain\data\MedicalRecord\medical_record.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="InsurancePolicy" Collapsed="true">
+  <Struct Name="InsurancePolicy">
     <Position X="50.75" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>QIAAAAAAAAAQAQAAACAABAAAAIAAAAgAIAAAAAAAABA=</HashCode>
       <FileName>domain\data\MedicalRecord\medical_record.h</FileName>

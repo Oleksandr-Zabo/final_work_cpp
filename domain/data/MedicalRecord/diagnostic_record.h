@@ -9,7 +9,7 @@ private:
 	string _analysis;
 public:
 	DiagnosticRecord() {
-		_diagnosis = "no diagnosis";
+		_diagnosis = "no_diagnosis";
 		_analysis = "No analysis information";
 	}
 

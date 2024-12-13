@@ -37,7 +37,8 @@ public:
         }
         Console_colors::inputs_color();
         cout << "Enter the diagnos: ";
-        cin >> diagnos;
+        cin.clear();
+		getline(cin, diagnos);
 
         if (!LoadRecord::is_FindRecord(name, surname, date_of_visit, diagnos)) {
             Console_colors::errors_color();

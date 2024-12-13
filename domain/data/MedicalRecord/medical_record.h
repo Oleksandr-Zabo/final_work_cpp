@@ -13,7 +13,7 @@ public:
 	Date(){
 		_day = 1;
 		_month = 1;
-		_year = 1000;
+		_year = 1900;
 	}
 	Date(int day, int month, int year) : _day(day), _month(month), _year(year) {
 		_day = day;
@@ -94,6 +94,14 @@ public:
 					return true;
 				}
 			}
+		}
+		return false;
+	}
+
+	//static func to years > operator
+	static bool is_greater_year(const Date& date1, const Date& date2) {
+		if (date1._year > date2._year) {
+			return true;
 		}
 		return false;
 	}
@@ -185,98 +193,102 @@ struct InsurancePolicy {
 };
 
 class MedicalRecord : public IMedicalRecord {
-protected:
-	string _name_of_patient;
-	string _surname_of_patient;
-    Date _date_of_birth;
-	InsurancePolicy _policy;
-public:
-	MedicalRecord() {
-		_name_of_patient = "";
-		_surname_of_patient = "";
-		_date_of_birth = Date();
-		_policy = InsurancePolicy();
-	}
+    protected:
+        string _name_of_patient;
+        string _surname_of_patient;
+        Date _date_of_birth;
+        InsurancePolicy _policy;
+    public:
+        MedicalRecord() {
+            _name_of_patient = "";
+            _surname_of_patient = "";
+            _date_of_birth = Date();
+            _policy = InsurancePolicy();
+        }
 
-	MedicalRecord(const string& name, const string& surname, Date date_of_birth, InsurancePolicy policy){
-		_name_of_patient = name;
-		_surname_of_patient = surname;
-		_date_of_birth = date_of_birth;
-		_policy = policy;
+        MedicalRecord(const string& name, const string& surname, Date date_of_birth, InsurancePolicy policy) {
+            _name_of_patient = name;
+            _surname_of_patient = surname;
+            _date_of_birth = date_of_birth;
+            _policy = policy;
+        }
 
-    }
+        MedicalRecord(const string& name, const string& surname, string date_of_birth, const string& policy) {
+            _name_of_patient = name;
+            _surname_of_patient = surname;
+            _date_of_birth = Date::fromString(date_of_birth);
+            _policy.fromString(policy);
+        }
 
-	MedicalRecord(const string& name, const string& surname, string date_of_birth, const string& policy) {
-		_name_of_patient = name;
-		_surname_of_patient = surname;
-		_date_of_birth = Date::fromString(date_of_birth);
-        _policy.fromString(policy);
-	}
+        MedicalRecord(const MedicalRecord& medical_record) {
+            _name_of_patient = medical_record._name_of_patient;
+            _surname_of_patient = medical_record._surname_of_patient;
+            _date_of_birth = medical_record._date_of_birth;
+            _policy = medical_record._policy;
+        }
 
-	MedicalRecord(const MedicalRecord& medical_record) {
-		_name_of_patient = medical_record._name_of_patient;
-		_surname_of_patient = medical_record._surname_of_patient;
-		_date_of_birth = medical_record._date_of_birth;
-		_policy = medical_record._policy;
-	}
+        void displayRecord() const override {
+            cout << "Name of patient: " << _name_of_patient << endl;
+            cout << "Surname of patient: " << _surname_of_patient << endl;
+            cout << "Date of birth: " << _date_of_birth.toString() << endl;
+            cout << "Insurance policy: " << _policy.toString() << endl;
+        }
 
-    void displayRecord() const override {
-        cout << "Name of patient: " << _name_of_patient << endl;
-		cout << "Surname of patient: " << _surname_of_patient << endl;
-		cout << "Date of birth: " << _date_of_birth.toString() << endl;
-		cout << "Insurance policy: " << _policy.toString() << endl;
-    }
+        string Medical_Record_to_string() const {
+            return "Name of patient: " + _name_of_patient + "\n" +
+                "Surname of patient: " + _surname_of_patient + "\n" +
+                "Date of birth: " + _date_of_birth.toString() + "\n" +
+                "Insurance policy: \n" + _policy.toString();
+        }
 
-	string Medical_Record_to_string() const {
-		return "Name of patient: " + _name_of_patient + "\n" +
-			"Surname of patient: " + _surname_of_patient + "\n" +
-			"Date of birth: " + _date_of_birth.toString() + "\n" +
-			"Insurance policy: \n" + _policy.toString();
-	}
+        void Medical_Record_from_string(const string& str) {
+            istringstream iss(str);
+            string line;
+            getline(iss, line);
+            _name_of_patient = line.substr(line.find(": ") + 2);
+            getline(iss, line);
+            _surname_of_patient = line.substr(line.find(": ") + 2);
+            getline(iss, line);
+            _date_of_birth = Date::fromString(line.substr(line.find(": ") + 2));
+            getline(iss, line);
 
-	void Medical_Record_from_string(const string& str) {
-		istringstream iss(str);
-		string line;
-		getline(iss, line);
-		_name_of_patient = line.substr(line.find(": ") + 2);
-		getline(iss, line);
-		_surname_of_patient = line.substr(line.find(": ") + 2);
-		getline(iss, line);
-		_date_of_birth = Date::fromString(line.substr(line.find(": ") + 2));
-		getline(iss, line);
+            InsurancePolicy policy1 = InsurancePolicy();
 
-		InsurancePolicy policy1 = InsurancePolicy();
+            getline(iss, line);
+            policy1.policyNumber = line.substr(line.find(": ") + 2);
 
-		getline(iss, line);
-		policy1.policyNumber = line.substr(line.find(": ") + 2);
+            getline(iss, line);
+            policy1.holderName = line.substr(line.find(": ") + 2);
 
-		getline(iss, line);
-		policy1.holderName = line.substr(line.find(": ") + 2);
+            getline(iss, line);
+            policy1.holderAddress = line.substr(line.find(": ") + 2);
 
-		getline(iss, line);
-		policy1.holderAddress = line.substr(line.find(": ") + 2);
+            getline(iss, line);
+            policy1.insuranceCompany = line.substr(line.find(": ") + 2);
 
-		getline(iss, line);
-		policy1.insuranceCompany = line.substr(line.find(": ") + 2);
+            getline(iss, line);
+            policy1.coverageAmount = stod(line.substr(line.find(": ") + 2));
 
-		getline(iss, line);
-		policy1.coverageAmount = stod(line.substr(line.find(": ") + 2));
+            getline(iss, line);
+            policy1.startDate = Date::fromString(line.substr(line.find(": ") + 2));
 
-		getline(iss, line);
-		policy1.startDate = Date::fromString(line.substr(line.find(": ") + 2));
+            getline(iss, line);
+            policy1.endDate = Date::fromString(line.substr(line.find(": ") + 2));
 
-		getline(iss, line);
-		policy1.endDate = Date::fromString(line.substr(line.find(": ") + 2));
+            _policy = policy1;
+        }
 
-		_policy = policy1;
-	}
+        string getName() const {
+            return _name_of_patient;
+        }
 
-	string getName() const {
-		return _name_of_patient;
-	}
+        string getSurname() const {
+            return _surname_of_patient;
+        }
 
-	string getSurname() const {
-		return _surname_of_patient;
-	}
+        string getDateOfBirth() const {
+            return _date_of_birth.toString();
+        }
+    
 };
 #endif // !MEDICAL_RECORD_CLASS

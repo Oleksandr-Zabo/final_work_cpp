@@ -107,8 +107,12 @@ public:
             Console_colors::record_info_num();
             cout << "Record " << i << " :" << endl;
             Console_colors::record_info_color();
-            medicalRecord->displayRecord();
+			cout << "Name of patient: " << medicalRecord->getName() << endl;
+			cout << "Surname of patient: " << medicalRecord->getSurname() << endl;
+            cout << "Date of birth patient: " << medicalRecord->getDateOfBirth() << endl;
             visitRecord->displayRecord();
+			Console_colors::default_color();
+            
 
             i++;
         }
