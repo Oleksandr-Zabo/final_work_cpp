@@ -24,7 +24,7 @@ public:
 
         int i = 0;
         for (const string& record : records) {
-            if (isFindRecordByRecord(record_to_find)) {
+            if (record == record_to_find) {
                 recordFound = true;
 				records.erase(records.begin() + i);
 				break;

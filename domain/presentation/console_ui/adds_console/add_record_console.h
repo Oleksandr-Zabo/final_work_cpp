@@ -175,7 +175,6 @@ public:
 		cin >> name;
 		cout << "Enter the surname of patient: ";
 		cin >> surname;
-		cout << "Enter the date of birth of patient(dd/mm/yyyy): ";
 		try
 		{
 			do
