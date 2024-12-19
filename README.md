@@ -1,5 +1,3 @@
-Here is the updated README file with the link to `results.pdf`:
-
 ---
 
 # Final Work C++ Project
@@ -51,5 +49,3 @@ You can view examples of the project work in [results.pdf](https://github.com/Ol
 Feel free to fork this repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
 ---
-
-You can add this content to your README file.
