@@ -23,13 +23,16 @@ private:
         ss << "***\n";
         ss << treatment_record.Treatment_Record_to_string() << "\n";
         ss << "***\n";
-        ss << visit_record.Visit_Record_to_string() << "\n";
+        ss << visit_record.Visit_Record_to_string();
         return ss.str();
     }
 
 public:
 
-	void saveRecord(const MedicalRecord& medical_record, const DiagnosticRecord& diagnos_record, const TreatmentRecord& treatment_record, const VisitRecord& visit_record) {
+	SaveRecord() : FileStorage("records.txt") {} // Initialize with a filename
+    SaveRecord(const string& filename) : FileStorage(filename) {} // Initialize with a filename
+
+	void saveRecordFunction(const MedicalRecord& medical_record, const DiagnosticRecord& diagnos_record, const TreatmentRecord& treatment_record, const VisitRecord& visit_record){
 		string data = convertRecordToString(medical_record, diagnos_record, treatment_record, visit_record);
 		saveData(data);
 	}

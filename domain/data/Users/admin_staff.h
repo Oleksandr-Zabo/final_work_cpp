@@ -15,32 +15,27 @@ public:
 
     // Method to display the admin staff's role
     void displayRole() const override {
-        cout << "Role: Admin Staff" << endl;
+        cout << "Role: AdminStaff" << endl;
     }
 
     // Method to get the admin_staff role
     string getRole() const override{
-        return "Admin staff";
+        return "AdminStaff";
     }
 
+	// Method to get the admin staff's name
+	string getName() const override {
+		return name;
+	}
+
     // Method to get the admin staff's surname
-    string getSurname() const {
+    string getSurname() const override{
         return surname;
     }
 
     // Method to set the admin staff's surname
     void setSurname(const string& lname) {
         surname = lname;
-    }
-
-    // Method to manage appointments (example function)
-    void manageAppointments() const {
-        cout << "Admin Staff managing appointments" << endl;
-    }
-
-    // Method to handle insurance claims (example function)
-    void handleInsuranceClaims() const {
-        cout << "Admin Staff handling insurance claims" << endl;
     }
 };
 

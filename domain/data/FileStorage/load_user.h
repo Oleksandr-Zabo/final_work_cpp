@@ -12,6 +12,9 @@
 
 class LoadUser : public FileStorage {
 public:
+	// Default constructor
+    LoadUser() :FileStorage() {};
+
     vector<User*> readAllUsers() {
         vector<User*> users;
         ifstream file("users.txt");
@@ -37,10 +40,30 @@ public:
         return nullptr;
     }
 
+    bool is_findUser(const string& username) {
+        vector<User*> users = readAllUsers();
+        for (User* user : users) {
+            if (user->getUsername() == username) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    bool is_findUserNameSurname(const string& name, const string& surname) {
+        vector<User*> users = readAllUsers();
+        for (User* user : users) {
+            if (user->getName() == name && user->getSurname() == surname) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
     User* createUserFromString(const string& userInfo) {
         stringstream ss(userInfo);
-		string username, password, name, surname, role;
-        ss >> username, password, name, surname, role;
+        string username, password, name, surname, role;
+        ss >> username >> password >> name >> surname >> role;
 
         if (role == "Admin") {
             return new Admin(username, password);

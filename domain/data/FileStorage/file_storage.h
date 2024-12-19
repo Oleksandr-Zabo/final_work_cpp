@@ -9,6 +9,10 @@ private:
     string filename;  // Stores the name of the file
 
 public:
+	// Constructors
+	FileStorage() : filename("data.txt") {}  // Default constructor
+	FileStorage(const string& fname) : filename(fname) {}  // Constructor with a filename
+
     // Method to encrypt data using Caesar cipher with a shift of 3
     string encrypt(const string& data) const {
         string encrypted = data;
@@ -19,7 +23,7 @@ public:
     }
 
     // Method to decrypt data using Caesar cipher with a shift of 3
-    string decrypt(const string& data) const {
+    string decrypt(const string& data) {
         string decrypted = data;
         for (char& c : decrypted) {
             c = c - 3;
@@ -27,18 +31,31 @@ public:
         return decrypted;
     }
 
-    // Constructor
-    FileStorage(const string& fname) : filename(fname) {}
-
     // Method to save data to a file with encryption
     void saveData(const string& data) override {
         try {
-            ofstream outFile(filename);
+            ofstream outFile(filename, ios::app);  // Open file in append mode
             if (!outFile.is_open()) {
                 throw runtime_error("Cannot open file for writing");
             }
             string encryptedData = encrypt(data);
-            outFile << encryptedData;
+            outFile << encryptedData << endl;
+            outFile.close();
+        }
+        catch (const exception& e) {
+            cerr << "Error: " << e.what() << endl;
+        }
+    }
+
+    // Method to rewrite data to a file with encryption
+    void saveDataClear(const string& data) override{
+        try {
+            ofstream outFile(filename, ios::out);  // Open file in write mode
+            if (!outFile.is_open()) {
+                throw runtime_error("Cannot open file for writing");
+            }
+            string encryptedData = encrypt(data);
+            outFile << encryptedData << endl;
             outFile.close();
         }
         catch (const exception& e) {
