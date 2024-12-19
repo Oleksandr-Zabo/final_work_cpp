@@ -127,7 +127,48 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="domain\data\FileStorage\delete_record.h" />
+    <ClInclude Include="domain\data\FileStorage\delete_user.h" />
+    <ClInclude Include="domain\data\FileStorage\file_storage.h" />
+    <ClInclude Include="domain\data\FileStorage\load_record.h" />
+    <ClInclude Include="domain\data\FileStorage\load_user.h" />
+    <ClInclude Include="domain\data\FileStorage\save_record.h" />
+    <ClInclude Include="domain\data\FileStorage\save_user.h" />
+    <ClInclude Include="domain\data\Interfaces\IDataStorage.h" />
+    <ClInclude Include="domain\data\Interfaces\IMedicalRecord.h" />
+    <ClInclude Include="domain\data\Interfaces\IUser.h" />
+    <ClInclude Include="domain\data\MedicalRecord\diagnostic_record.h" />
+    <ClInclude Include="domain\data\MedicalRecord\medical_record.h" />
+    <ClInclude Include="domain\data\MedicalRecord\treatment_record.h" />
+    <ClInclude Include="domain\data\MedicalRecord\visit_record.h" />
+    <ClInclude Include="domain\data\Users\admin.h" />
+    <ClInclude Include="domain\data\Users\admin_staff.h" />
+    <ClInclude Include="domain\data\Users\doctor.h" />
+    <ClInclude Include="domain\data\Users\nurse.h" />
+    <ClInclude Include="domain\data\Users\user.h" />
+    <ClInclude Include="domain\domain.h" />
+    <ClInclude Include="domain\lib.h" />
+    <ClInclude Include="domain\presentation\console_ui\adds_console\add_record_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\adds_console\add_user_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\change_console\change_record_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\change_console\change_user_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\console_colors.h" />
+    <ClInclude Include="domain\presentation\console_ui\delete_console\delete_record_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\delete_console\delete_user_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\main_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\show_console\show_all_users_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\show_console\show_records_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\admin_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\admin_staff_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\doctor_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\log_in_console.h" />
+    <ClInclude Include="domain\presentation\console_ui\users_console\nurse_console.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project-diag.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="IDataStorage">
+    <Position X="22.75" Y="14.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAABAAAAAAAAAAIAAAAgAAAAAAAAA=</HashCode>
+      <FileName>domain\data\Interfaces\IDataStorage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IMedicalRecord">
+    <Position X="37.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>domain\data\Interfaces\IMedicalRecord.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IUser">
+    <Position X="13" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\data\Interfaces\IUser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteRecord">
+    <Position X="20.75" Y="23.25" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\data\FileStorage\delete_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteUser">
+    <Position X="24.75" Y="26" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\data\FileStorage\delete_user.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileStorage">
+    <Position X="22.75" Y="16.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABFAAAAAAAAAABAAEAAAAAAAIAAAAAQAAAAAAAA=</HashCode>
+      <FileName>domain\data\FileStorage\file_storage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadRecord">
+    <Position X="9.75" Y="20.25" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgACCCBCAAAAAAAAAAAIABAAAAAAAgAAAg=</HashCode>
+      <FileName>domain\data\FileStorage\load_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadUser">
+    <Position X="17.25" Y="20.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAIAAAAAAAAAAACAAAAAAABIAIAAAAAAAA=</HashCode>
+      <FileName>domain\data\FileStorage\load_user.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveRecord">
+    <Position X="27" Y="20.25" Width="11.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAECAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\data\FileStorage\save_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveUser">
+    <Position X="23" Y="20.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAIAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\data\FileStorage\save_user.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiagnosticRecord">
+    <Position X="34" Y="7" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAABAAAABAAAASAAAAAAAAAAAAAAAAAAAAQBAAA=</HashCode>
+      <FileName>domain\data\MedicalRecord\diagnostic_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TreatmentRecord">
+    <Position X="28.75" Y="7" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAABAAAAQCAAACAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>domain\data\MedicalRecord\treatment_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VisitRecord">
+    <Position X="39" Y="7" Width="9" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAQAAAAIBQQAAgIAogAAEAAAACGA=</HashCode>
+      <FileName>domain\data\MedicalRecord\visit_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Admin">
+    <Position X="15.75" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAABAAAAAACAAQAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>domain\data\Users\admin.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminStaff">
+    <Position X="20.5" Y="7.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAABAAAAAECEAAAAAAAEAAAAAAAEAAQAAAA=</HashCode>
+      <FileName>domain\data\Users\admin_staff.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doctor">
+    <Position X="1.25" Y="7.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAACEAAAAAAAEAAQAAAAEAAQAAAA=</HashCode>
+      <FileName>domain\data\Users\doctor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nurse">
+    <Position X="8.75" Y="7.75" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAACAAACEAAAAAAAEAAAAAAAEAAQAAAA=</HashCode>
+      <FileName>domain\data\Users\nurse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="User">
+    <Position X="12.25" Y="2.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAEQAAABAAAAAECMABEQAAAEAABAAAAEAgQAAIA=</HashCode>
+      <FileName>domain\data\Users\user.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Console_colors" Collapsed="true">
+    <Position X="49" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAABAIACAFAAhAAAAAAAAAEkgYAQAAACAAAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\console_colors.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainConsole" Collapsed="true">
+    <Position X="49" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAABAAAAgAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\main_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddRecordConsole">
+    <Position X="20" Y="29.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\adds_console\add_record_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddUserConsole">
+    <Position X="20" Y="26" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgIAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\adds_console\add_user_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangeRecordConsole">
+    <Position X="19.75" Y="32" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\change_console\change_record_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChangeUserConsole">
+    <Position X="23" Y="32" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAEAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\change_console\change_user_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteRecordConsole">
+    <Position X="23" Y="29.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\delete_console\delete_record_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteUserConsole">
+    <Position X="26.25" Y="28.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\delete_console\delete_user_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowAllUsersConsole">
+    <Position X="30" Y="23" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\show_console\show_all_users_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowRecordsConsole">
+    <Position X="10" Y="23.25" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAiAAAAAAAAMAAAIAAAACAAAAAAQAA=</HashCode>
+      <FileName>domain\presentation\console_ui\show_console\show_records_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminConsole">
+    <Position X="15.25" Y="10.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAACAA=</HashCode>
+      <FileName>domain\presentation\console_ui\users_console\admin_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdminStaffConsole">
+    <Position X="20.25" Y="11.5" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAIAAAAAAAAAEAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\users_console\admin_staff_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorConsole">
+    <Position X="1" Y="11.25" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\users_console\doctor_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogInConsole" Collapsed="true">
+    <Position X="50.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQAAQAgAIAAAAAAAAAAAAAAAAAAgAAAAAAAADIARA=</HashCode>
+      <FileName>domain\presentation\console_ui\users_console\log_in_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NurseConsole">
+    <Position X="8.25" Y="11.25" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>domain\presentation\console_ui\users_console\nurse_console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedicalRecord">
+    <Position X="35.25" Y="2.5" Width="6.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAQQAACAUAAABAAAAAAAAEAEQAAAA=</HashCode>
+      <FileName>domain\data\MedicalRecord\medical_record.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Date" Collapsed="true">
+    <Position X="49" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAIAAQAAABAAEERQMAAIAAAgABAAAgAAQAQAA=</HashCode>
+      <FileName>domain\data\MedicalRecord\medical_record.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="InsurancePolicy">
+    <Position X="50.75" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAAAAQAQAAACAABAAAAIAAAAgAIAAAAAAAABA=</HashCode>
+      <FileName>domain\data\MedicalRecord\medical_record.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
