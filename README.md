@@ -1,3 +1,5 @@
+Here is the updated README file with the link to `results.pdf`:
+
 ---
 
 # Final Work C++ Project
@@ -42,9 +44,12 @@ This project is a C++ application focused on medical record handling. It include
 - **Delete Record**: Choose a record to remove from the system.
 - **Display Records**: View all or specific records based on search criteria.
 
+## Example of Project Work
+You can view examples of the project work in [results.pdf](https://github.com/Oleksandr-Zabo/final_work_cpp/blob/master/results.pdf).
+
 ## Contributing
 Feel free to fork this repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
-You can view more commits and changes [here](https://github.com/Oleksandr-Zabo/final_work_cpp/commits). Let me know if you need any modifications or additional sections in the README.
+You can add this content to your README file.
